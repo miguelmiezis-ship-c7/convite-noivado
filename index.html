@@ -3,112 +3,466 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite de Noivado — Wilson & Anastácia</title>
+
+  <title>Wilson & Anastácia — Estamos Noivos!</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 20px;
-      font-family: Georgia, serif;
-      background: #fdf6e3;
-      color: #333;
-      text-align: center;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top, #fffaf0 0%, #f7eddc 45%, #efe1c9 100%);
+      color: #4a4035;
+      display: flex;
+      justify-content: center;
+      padding: 25px 15px;
     }
 
     .convite {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 35px 20px;
-      background: #fffdf7;
-      border: 1px solid #d2b48c;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 253, 248, 0.97);
+      border: 1px solid rgba(184, 134, 11, 0.35);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow:
+        0 18px 50px rgba(80, 60, 30, 0.16),
+        0 2px 8px rgba(80, 60, 30, 0.08);
+      position: relative;
     }
 
-    h1 {
-      color: #b8860b;
-      font-size: 2.2em;
-      margin-bottom: 15px;
+    /* Detalhes dourados dos cantos */
+    .convite::before,
+    .convite::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border: 1px solid rgba(184, 134, 11, 0.35);
+      pointer-events: none;
     }
 
-    .data {
-      font-size: 1.15em;
+    .convite::before {
+      top: 18px;
+      left: 18px;
+      border-right: none;
+      border-bottom: none;
+      border-radius: 18px 0 0 0;
+    }
+
+    .convite::after {
+      right: 18px;
+      bottom: 18px;
+      border-left: none;
+      border-top: none;
+      border-radius: 0 0 18px 0;
+    }
+
+    /* CABEÇALHO */
+
+    .topo {
+      padding: 42px 25px 30px;
+      text-align: center;
+      background:
+        linear-gradient(
+          135deg,
+          #fffaf0,
+          #f8edd9
+        );
+    }
+
+    .pequeno-titulo {
+      margin: 0 0 12px;
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #9a7422;
       font-weight: bold;
     }
 
-    .local {
-      margin: 20px 0 30px;
-      line-height: 1.6;
+    .titulo {
+      margin: 0;
+      font-size: 2.45rem;
+      line-height: 1.05;
+      color: #b8860b;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+
+    .subtitulo {
+      margin: 14px 0 0;
+      font-size: 1.05rem;
+      color: #6d6255;
+      font-style: italic;
+    }
+
+    /* ÁREA RESERVADA PARA FOTOGRAFIA */
+
+    .foto-area {
+      margin: 0 22px;
+      height: 260px;
+      border-radius: 22px;
+      border: 1px solid rgba(184, 134, 11, 0.35);
+      background:
+        linear-gradient(
+          135deg,
+          #ead8b8,
+          #f8efdf,
+          #dfc69c
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .foto-area::before {
+      content: "♡";
+      position: absolute;
+      font-size: 8rem;
+      color: rgba(255, 255, 255, 0.38);
+    }
+
+    .foto-texto {
+      position: relative;
+      z-index: 2;
+      color: #8c6b2c;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* NOMES */
+
+    .nomes {
+      text-align: center;
+      padding: 28px 20px 10px;
+    }
+
+    .nomes h2 {
+      margin: 0;
+      color: #5b4b38;
+      font-size: 2rem;
+      font-weight: normal;
+    }
+
+    .ampersand {
+      color: #b8860b;
+      font-style: italic;
+    }
+
+    .frase {
+      margin: 10px 0 0;
+      color: #887968;
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    /* INFORMAÇÕES */
+
+    .detalhes {
+      margin: 20px;
+      padding: 25px 20px;
+      background: #fffaf2;
+      border: 1px solid rgba(184, 134, 11, 0.2);
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .detalhe {
+      margin: 15px 0;
+    }
+
+    .icone {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .detalhe strong {
+      display: block;
+      color: #6a563e;
+      font-size: 0.98rem;
+    }
+
+    .detalhe span {
+      display: block;
+      margin-top: 4px;
+      color: #8a7a68;
+      font-size: 0.94rem;
+      line-height: 1.5;
+    }
+
+    .separador {
+      width: 55px;
+      height: 1px;
+      background: #c7a45a;
+      margin: 18px auto;
+    }
+
+    /* BOTÕES */
+
+    .acoes {
+      padding: 5px 25px 20px;
     }
 
     .button {
       display: block;
-      margin: 12px auto;
-      padding: 15px 20px;
-      max-width: 350px;
-      font-size: 1.05em;
-      color: #fff;
-      background: #b8860b;
+      width: 100%;
+      margin: 13px 0;
+      padding: 15px 18px;
+      border-radius: 50px;
       text-decoration: none;
-      border-radius: 10px;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .button.secondary {
-      background: #d2b48c;
+    .button:hover {
+      transform: translateY(-2px);
     }
 
-    .button.manual {
-      background: #8b6f47;
+    .button:active {
+      transform: scale(0.98);
     }
+
+    .principal {
+      color: white;
+      background: linear-gradient(135deg, #b8860b, #d4af5a);
+      box-shadow: 0 7px 18px rgba(184, 134, 11, 0.25);
+    }
+
+    .secundario {
+      color: #725b35;
+      background: #f4ead8;
+      border: 1px solid rgba(184, 134, 11, 0.3);
+    }
+
+    .manual {
+      color: #725b35;
+      background: #fffaf2;
+      border: 1px solid #c7a45a;
+    }
+
+    /* RODAPÉ */
 
     .rodape {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #777;
+      padding: 10px 30px 35px;
+      text-align: center;
+    }
+
+    .linha-dourada {
+      width: 80px;
+      height: 1px;
+      background: #c7a45a;
+      margin: 0 auto 20px;
+    }
+
+    .rodape p {
+      margin: 0;
+      color: #817363;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .coracao {
+      display: block;
+      margin-top: 12px;
+      color: #b8860b;
+      font-size: 1.4rem;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 400px) {
+      body {
+        padding: 12px 8px;
+      }
+
+      .convite {
+        border-radius: 22px;
+      }
+
+      .titulo {
+        font-size: 2rem;
+      }
+
+      .nomes h2 {
+        font-size: 1.7rem;
+      }
+
+      .foto-area {
+        height: 230px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="convite">
+  <main class="convite">
 
-    <h1>Wilson Da Silva & Anastácia Cunge</h1>
+    <!-- CABEÇALHO -->
 
-    <p class="data">
-      03 de outubro de 2026 — às 18h
-    </p>
+    <header class="topo">
 
-    <p class="local">
-      📍 <strong>Salão de Eventos UTT</strong><br>
-      Rua do Weza Paradise
-    </p>
+      <p class="pequeno-titulo">
+        Clique para assistir
+      </p>
 
-    <a
-      href="https://forms.gle/fWTGRnVkcBpypAVR7"
-      class="button">
-      💌 Confirmar Presença
-    </a>
+      <h1 class="titulo">
+        Estamos Noivos!
+      </h1>
 
-    <a
-      href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
-      class="button secondary"
-      target="_blank">
-      📍 Ver Localização
-    </a>
+      <p class="subtitulo">
+        Um momento especial merece ser celebrado.
+      </p>
 
-    <a
-  href="https://drive.google.com/file/d/137pBak85dZzso8_fXvNavkc6j-bL9XA/view"
-  class="button manual"
-  target="_blank">
-  📖 Manual do Bom Convidado
-    </a>
+    </header>
 
-    <p class="rodape">
-      Será uma alegria celebrar este momento especial convosco. ❤️
-    </p>
 
-  </div>
+    <!-- FOTOGRAFIA
+         A fotografia será colocada aqui posteriormente. -->
+
+    <section class="foto-area">
+
+      <div class="foto-texto">
+        Nossa história começa aqui
+      </div>
+
+    </section>
+
+
+    <!-- NOMES -->
+
+    <section class="nomes">
+
+      <h2>
+        Wilson <span class="ampersand">&amp;</span> Anastácia
+      </h2>
+
+      <p class="frase">
+        Vamos celebrar o nosso noivado!
+      </p>
+
+    </section>
+
+
+    <!-- INFORMAÇÕES -->
+
+    <section class="detalhes">
+
+      <div class="detalhe">
+
+        <span class="icone">♡</span>
+
+        <strong>Data</strong>
+
+        <span>
+          03 de outubro de 2026
+        </span>
+
+      </div>
+
+
+      <div class="separador"></div>
+
+
+      <div class="detalhe">
+
+        <span class="icone">⏰</span>
+
+        <strong>Horário</strong>
+
+        <span>
+          Às 18h
+        </span>
+
+      </div>
+
+
+      <div class="separador"></div>
+
+
+      <div class="detalhe">
+
+        <span class="icone">📍</span>
+
+        <strong>Local</strong>
+
+        <span>
+          Salão de Eventos UTT<br>
+          Rua do Weza Paradise
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTÕES -->
+
+    <section class="acoes">
+
+      <a
+        href="https://forms.gle/fWTGRnVkcBpypAVR7"
+        class="button principal"
+        target="_blank"
+        rel="noopener noreferrer">
+        💌 &nbsp; Confirmar Presença
+      </a>
+
+
+      <a
+        href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
+        class="button secundario"
+        target="_blank"
+        rel="noopener noreferrer">
+        📍 &nbsp; Ver Localização
+      </a>
+
+
+      <a
+        href="#"
+        class="button manual"
+        onclick="alert('O Manual do Bom Convidado será disponibilizado aqui.'); return false;">
+        📖 &nbsp; Manual do Bom Convidado
+      </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
+
+      <div class="linha-dourada"></div>
+
+      <p>
+        Será uma alegria celebrar este momento
+        especial convosco.
+      </p>
+
+      <span class="coracao">♡</span>
+
+    </footer>
+
+  </main>
 
 </body>
-  </html>
+</html>
+
