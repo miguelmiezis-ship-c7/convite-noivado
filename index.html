@@ -11,6 +11,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 18px 12px;
@@ -29,16 +33,22 @@
       color: #514638;
     }
 
-    /* MOLDURA PRINCIPAL */
+    /* =====================================
+       MOLDURA PRINCIPAL
+       ===================================== */
+
     .convite {
       position: relative;
+
       width: 100%;
       max-width: 500px;
+
       margin: 0 auto;
 
       background: #fffdf8;
 
       border: 1px solid rgba(184, 134, 11, 0.45);
+
       border-radius: 24px;
 
       box-shadow:
@@ -47,7 +57,8 @@
       overflow: hidden;
     }
 
-    /* DETALHE DECORATIVO INTERNO */
+    /* Moldura decorativa interna */
+
     .convite::before {
       content: "";
 
@@ -59,40 +70,73 @@
       bottom: 10px;
 
       border: 1px solid rgba(184, 134, 11, 0.22);
+
       border-radius: 18px;
 
       pointer-events: none;
     }
 
-    /* CABEÇALHO */
+
+    /* =====================================
+       CABEÇALHO
+       ===================================== */
+
     .cabecalho {
       position: relative;
       z-index: 1;
 
       text-align: center;
 
-      padding: 32px 20px 22px;
+      padding: 34px 22px 22px;
+    }
+
+    .pequeno-detalhe {
+      display: block;
+
+      margin-bottom: 9px;
+
+      color: #c19a45;
+
+      font-size: 0.72rem;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
     }
 
     .cabecalho h1 {
       margin: 0;
 
-      color: #b8860b;
+      color: #a9780b;
 
-      font-size: 2rem;
+      font-size: 1.95rem;
+
       font-weight: normal;
 
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
     }
 
-    /* FOTO DOS NOIVOS */
+    .linha-titulo {
+      width: 48px;
+      height: 1px;
+
+      margin: 13px auto 0;
+
+      background: #c7a45a;
+    }
+
+
+    /* =====================================
+       ESPAÇO DA FOTO DOS NOIVOS
+       ===================================== */
+
     .foto {
       position: relative;
       z-index: 1;
 
-      margin: 0 24px;
-
       height: 220px;
+
+      margin: 0 24px;
 
       border-radius: 18px;
 
@@ -107,6 +151,7 @@
         );
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -114,17 +159,23 @@
 
       color: #987535;
 
-      font-size: 0.9rem;
-      font-style: italic;
-      letter-spacing: 0.5px;
-
       box-shadow:
         inset 0 0 0 6px rgba(255,255,255,0.22);
     }
 
-    /* IMAGEM DOS NOIVOS
-       Quando colocarmos a fotografia,
-       substituiremos o conteúdo deste espaço. */
+    .foto-texto {
+      padding: 15px;
+
+      text-align: center;
+
+      font-size: 0.9rem;
+
+      font-style: italic;
+
+      letter-spacing: 0.5px;
+    }
+
+    /* Quando a fotografia real for adicionada */
 
     .foto img {
       width: 100%;
@@ -132,12 +183,10 @@
 
       object-fit: cover;
 
-      display: none;
+      display: block;
     }
 
-    .foto-texto {
-      text-align: center;
-    }
+    /* Decoração da moldura */
 
     .foto::before,
     .foto::after {
@@ -145,7 +194,7 @@
 
       position: absolute;
 
-      color: rgba(184, 134, 11, 0.55);
+      color: rgba(184, 134, 11, 0.58);
 
       font-size: 1.1rem;
 
@@ -162,86 +211,123 @@
       right: 12px;
     }
 
-    /* CONTEÚDO */
+
+    /* =====================================
+       CONTEÚDO PRINCIPAL
+       ===================================== */
+
     .conteudo {
       position: relative;
       z-index: 1;
 
-      text-align: center;
+      padding: 26px 22px 10px;
 
-      padding: 25px 20px 10px;
+      text-align: center;
+    }
+
+    .introducao {
+      margin: 0 0 8px;
+
+      color: #9a805c;
+
+      font-size: 0.72rem;
+
+      letter-spacing: 2.5px;
+
+      text-transform: uppercase;
     }
 
     .nomes {
       margin: 0;
 
-      color: #5c4c39;
+      color: #574735;
 
-      font-size: 1.85rem;
+      font-size: 1.9rem;
+
       font-weight: normal;
+
+      letter-spacing: 0.4px;
     }
 
     .ampersand {
       color: #b8860b;
+
       font-style: italic;
+
+      padding: 0 3px;
     }
 
     .mensagem {
-      margin: 9px 0 20px;
+      margin: 10px 0 22px;
 
       color: #806f5d;
 
       font-size: 0.98rem;
+
+      line-height: 1.5;
+
       font-style: italic;
     }
 
-    /* INFORMAÇÕES */
+
+    /* =====================================
+       INFORMAÇÕES DO EVENTO
+       ===================================== */
+
     .informacoes {
-      padding: 5px 0 8px;
+      padding: 3px 0 8px;
     }
 
     .informacao {
-      margin: 13px 0;
+      margin: 14px 0;
     }
 
     .informacao .icone {
       display: block;
 
-      margin-bottom: 4px;
+      margin-bottom: 5px;
 
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
     .informacao strong {
       display: block;
 
+      margin-bottom: 3px;
+
       color: #66543f;
 
-      font-size: 0.92rem;
+      font-size: 0.75rem;
+
+      letter-spacing: 1.8px;
+
+      text-transform: uppercase;
     }
 
     .informacao span {
       display: block;
 
-      margin-top: 3px;
-
       color: #837565;
 
-      font-size: 0.92rem;
+      font-size: 0.93rem;
 
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .linha {
-      width: 45px;
+      width: 42px;
       height: 1px;
 
-      margin: 15px auto;
+      margin: 14px auto;
 
       background: #c8a45c;
     }
 
-    /* BOTÕES */
+
+    /* =====================================
+       BOTÕES
+       ===================================== */
+
     .botoes {
       position: relative;
       z-index: 1;
@@ -261,9 +347,11 @@
 
       width: 100%;
 
-      margin: 12px 0;
+      min-height: 49px;
 
-      padding: 14px 18px;
+      margin: 11px 0;
+
+      padding: 13px 45px 13px 18px;
 
       border-radius: 12px;
 
@@ -273,8 +361,11 @@
 
       font-family: Georgia, "Times New Roman", serif;
 
-      font-size: 0.94rem;
+      font-size: 0.91rem;
+
       font-weight: bold;
+
+      letter-spacing: 0.2px;
 
       cursor: pointer;
 
@@ -291,19 +382,22 @@
       transform: translateY(0);
     }
 
+    /* Seta que mostra claramente que é clicável */
+
     .botao::after {
       content: "›";
 
       position: absolute;
 
-      right: 18px;
+      right: 17px;
 
-      font-size: 1.25rem;
+      font-size: 1.35rem;
+
+      font-weight: normal;
 
       line-height: 1;
     }
 
-    /* CONFIRMAR */
     .confirmar {
       color: #ffffff;
 
@@ -320,7 +414,6 @@
         0 6px 16px rgba(184, 134, 11, 0.22);
     }
 
-    /* LOCALIZAÇÃO */
     .localizacao {
       color: #6d5734;
 
@@ -332,7 +425,6 @@
         0 4px 12px rgba(80, 60, 30, 0.08);
     }
 
-    /* MANUAL */
     .manual {
       color: #6d5734;
 
@@ -344,7 +436,11 @@
         0 4px 12px rgba(80, 60, 30, 0.06);
     }
 
-    /* RODAPÉ */
+
+    /* =====================================
+       RODAPÉ
+       ===================================== */
+
     .rodape {
       position: relative;
       z-index: 1;
@@ -364,13 +460,15 @@
     }
 
     .rodape p {
-      margin: 0;
+      max-width: 330px;
+
+      margin: 0 auto;
 
       color: #817363;
 
-      font-size: 0.85rem;
+      font-size: 0.84rem;
 
-      line-height: 1.5;
+      line-height: 1.55;
 
       font-style: italic;
     }
@@ -385,6 +483,7 @@
       font-size: 1.2rem;
     }
 
+
     /* =====================================
        JANELA DO MANUAL
        ===================================== */
@@ -398,11 +497,12 @@
 
       inset: 0;
 
-      padding: 18px;
+      padding: 15px;
 
-      background: rgba(40, 30, 18, 0.82);
+      background: rgba(40, 30, 18, 0.84);
 
       align-items: center;
+
       justify-content: center;
     }
 
@@ -414,6 +514,7 @@
       position: relative;
 
       width: 100%;
+
       max-width: 520px;
 
       max-height: 94vh;
@@ -435,12 +536,15 @@
     }
 
     .manual-titulo {
-      margin: 3px 35px 15px;
+      margin: 3px 40px 15px;
 
       color: #8a681d;
 
-      font-size: 1.25rem;
+      font-size: 1.18rem;
+
       font-weight: normal;
+
+      letter-spacing: 0.4px;
     }
 
     .manual-imagem {
@@ -458,6 +562,8 @@
       border: 1px solid rgba(184, 134, 11, 0.25);
 
       background: #f7eddc;
+
+      cursor: zoom-in;
     }
 
     .fechar-manual {
@@ -487,12 +593,74 @@
 
       color: #897866;
 
-      font-size: 0.78rem;
+      font-size: 0.76rem;
 
       font-style: italic;
     }
 
-    /* TELEMÓVEIS PEQUENOS */
+
+    /* =====================================
+       VISUALIZAÇÃO AMPLIADA DO MANUAL
+       ===================================== */
+
+    .imagem-ampliada {
+      display: none;
+
+      position: fixed;
+
+      z-index: 10000;
+
+      inset: 0;
+
+      padding: 12px;
+
+      background: rgba(20, 15, 10, 0.94);
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    .imagem-ampliada.aberto {
+      display: flex;
+    }
+
+    .imagem-ampliada img {
+      max-width: 100%;
+      max-height: 94vh;
+
+      object-fit: contain;
+
+      border-radius: 6px;
+    }
+
+    .fechar-ampliada {
+      position: fixed;
+
+      top: 12px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.9);
+
+      color: #5a4935;
+
+      font-size: 1.35rem;
+
+      cursor: pointer;
+    }
+
+
+    /* =====================================
+       TELEMÓVEIS PEQUENOS
+       ===================================== */
+
     @media (max-width: 380px) {
 
       body {
@@ -500,15 +668,16 @@
       }
 
       .cabecalho {
-        padding-top: 25px;
+        padding-top: 27px;
       }
 
       .cabecalho h1 {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
       }
 
       .foto {
         height: 190px;
+
         margin: 0 20px;
       }
 
@@ -522,11 +691,13 @@
       }
 
       .botao {
-        padding: 13px;
+        min-height: 47px;
+
+        padding: 12px 42px 12px 14px;
       }
 
       .manual-overlay {
-        padding: 10px;
+        padding: 9px;
       }
 
       .manual-caixa {
@@ -536,51 +707,67 @@
   </style>
 </head>
 
+
 <body>
 
   <main class="convite">
 
-    <!-- CABEÇALHO -->
+
+    <!-- =================================
+         CABEÇALHO
+         ================================= -->
+
     <header class="cabecalho">
+
+      <span class="pequeno-detalhe">
+        Com carinho
+      </span>
 
       <h1>
         Convite de Noivado
       </h1>
 
+      <div class="linha-titulo"></div>
+
     </header>
 
 
-    <!-- FOTO DOS NOIVOS -->
+    <!-- =================================
+         FOTO DOS NOIVOS
+         ================================= -->
+
     <section class="foto">
-
-      <!--
-        QUANDO TIVERES A FOTO:
-
-        1. Coloca a imagem no mesmo repositório.
-        2. Usa, por exemplo:
-           foto-noivos.jpg
-
-        3. Depois substituímos o texto pela imagem.
-
-        A nossa história começa aqui
-      -->
 
       <div class="foto-texto">
         A nossa história começa aqui
       </div>
 
       <!--
+      FUTURA FOTO DOS NOIVOS:
+
+      Quando tiveres a fotografia, basta
+      substituir o conteúdo acima por:
+
       <img
         src="foto-noivos.jpg"
         alt="Wilson e Anastácia"
       >
+
       -->
+
 
     </section>
 
 
-    <!-- CONTEÚDO -->
+    <!-- =================================
+         CONTEÚDO PRINCIPAL
+         ================================= -->
+
     <section class="conteudo">
+
+      <p class="introducao">
+        Com alegria, convidamos-vos a celebrar
+      </p>
 
       <h2 class="nomes">
 
@@ -594,13 +781,17 @@
 
       </h2>
 
-
       <p class="mensagem">
         Vamos celebrar o nosso noivado!
       </p>
 
 
+      <!-- =================================
+           INFORMAÇÕES
+           ================================= -->
+
       <div class="informacoes">
+
 
         <div class="informacao">
 
@@ -659,15 +850,21 @@
 
         </div>
 
+
       </div>
 
     </section>
 
 
-    <!-- BOTÕES -->
+    <!-- =================================
+         BOTÕES
+         ================================= -->
+
     <section class="botoes">
 
+
       <!-- CONFIRMAR PRESENÇA -->
+
       <a
         href="https://forms.gle/fWTGRnVkcBpypAVR7"
         class="botao confirmar"
@@ -681,6 +878,7 @@
 
 
       <!-- LOCALIZAÇÃO -->
+
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
         class="botao localizacao"
@@ -694,6 +892,7 @@
 
 
       <!-- MANUAL -->
+
       <button
         type="button"
         class="botao manual"
@@ -704,10 +903,14 @@
 
       </button>
 
+
     </section>
 
 
-    <!-- RODAPÉ -->
+    <!-- =================================
+         RODAPÉ
+         ================================= -->
+
     <footer class="rodape">
 
       <div class="rodape-linha"></div>
@@ -723,6 +926,7 @@
 
     </footer>
 
+
   </main>
 
 
@@ -735,7 +939,9 @@
     class="manual-overlay"
     onclick="fecharManualFora(event)">
 
+
     <div class="manual-caixa">
+
 
       <button
         type="button"
@@ -753,23 +959,13 @@
       </h2>
 
 
-      <!--
-        IMAGEM DO MANUAL
-
-        Quando colocares a imagem no GitHub,
-        usa este nome:
-
-        manual-bom-convidado.jpg
-
-        Se for PNG, altera para:
-
-        manual-bom-convidado.png
-      -->
+      <!-- IMAGEM REAL DO MANUAL -->
 
       <img
-        src="manual-bom-convidado.jpg"
+        src="1789604609562.jpg"
         alt="Manual do Bom Convidado"
         class="manual-imagem"
+        onclick="ampliarManual()"
       >
 
 
@@ -777,10 +973,45 @@
         Toque na imagem para visualizar com mais detalhe.
       </p>
 
+
     </div>
 
   </div>
 
+
+  <!-- =====================================
+       IMAGEM AMPLIADA
+       ===================================== -->
+
+  <div
+    id="imagemAmpliada"
+    class="imagem-ampliada"
+    onclick="fecharAmpliadaFora(event)">
+
+
+    <button
+      type="button"
+      class="fechar-ampliada"
+      onclick="fecharAmpliada()"
+      aria-label="Fechar imagem">
+
+      ×
+
+    </button>
+
+
+    <img
+      src="1789604609562.jpg"
+      alt="Manual do Bom Convidado ampliado"
+    >
+
+
+  </div>
+
+
+  <!-- =====================================
+       JAVASCRIPT
+       ===================================== -->
 
   <script>
 
@@ -820,13 +1051,47 @@
     }
 
 
-    /* Fechar o manual com a tecla ESC */
+    function ampliarManual() {
+
+      document
+        .getElementById("imagemAmpliada")
+        .classList.add("aberto");
+
+    }
+
+
+    function fecharAmpliada() {
+
+      document
+        .getElementById("imagemAmpliada")
+        .classList.remove("aberto");
+
+    }
+
+
+    function fecharAmpliadaFora(event) {
+
+      if (
+        event.target ===
+        document.getElementById("imagemAmpliada")
+      ) {
+
+        fecharAmpliada();
+
+      }
+
+    }
+
+
+    /* Tecla ESC */
 
     document.addEventListener(
       "keydown",
       function(event) {
 
         if (event.key === "Escape") {
+
+          fecharAmpliada();
 
           fecharManual();
 
@@ -836,6 +1101,7 @@
     );
 
   </script>
+
 
 </body>
 </html>
