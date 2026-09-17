@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Wilson & Anastácia — Convite de Noivado</title>
+  <title>Convite de Noivado — Wilson & Anastácia</title>
 
   <style>
     * {
@@ -29,14 +29,16 @@
       color: #514638;
     }
 
+    /* MOLDURA PRINCIPAL */
     .convite {
+      position: relative;
       width: 100%;
       max-width: 500px;
       margin: 0 auto;
 
       background: #fffdf8;
 
-      border: 1px solid rgba(184, 134, 11, 0.35);
+      border: 1px solid rgba(184, 134, 11, 0.45);
       border-radius: 24px;
 
       box-shadow:
@@ -45,9 +47,27 @@
       overflow: hidden;
     }
 
-    /* CABEÇALHO */
+    /* DETALHE DECORATIVO INTERNO */
+    .convite::before {
+      content: "";
+      position: absolute;
 
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+
+      border: 1px solid rgba(184, 134, 11, 0.22);
+      border-radius: 18px;
+
+      pointer-events: none;
+    }
+
+    /* CABEÇALHO */
     .cabecalho {
+      position: relative;
+      z-index: 1;
+
       text-align: center;
       padding: 32px 20px 22px;
     }
@@ -57,31 +77,24 @@
 
       color: #b8860b;
 
-      font-size: 2.15rem;
+      font-size: 2rem;
       font-weight: normal;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
-    .cabecalho p {
-      margin: 9px 0 0;
-
-      color: #766858;
-
-      font-size: 0.95rem;
-      font-style: italic;
-    }
-
-    /* ÁREA DA FOTOGRAFIA */
-
+    /* MOLDURA DA HISTÓRIA / FOTO */
     .foto {
-      margin: 0 18px;
+      position: relative;
+      z-index: 1;
+
+      margin: 0 24px;
 
       height: 220px;
 
       border-radius: 18px;
 
-      border: 1px solid rgba(184, 134, 11, 0.3);
+      border: 1px solid rgba(184, 134, 11, 0.4);
 
       background:
         linear-gradient(
@@ -97,14 +110,41 @@
 
       color: #987535;
 
-      font-size: 0.8rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-style: italic;
+      letter-spacing: 0.5px;
+
+      box-shadow:
+        inset 0 0 0 6px rgba(255,255,255,0.22);
+    }
+
+    /* DECORAÇÃO DA MOLDURA */
+    .foto::before,
+    .foto::after {
+      content: "♡";
+
+      position: absolute;
+
+      color: rgba(184, 134, 11, 0.55);
+
+      font-size: 1.1rem;
+    }
+
+    .foto::before {
+      top: 10px;
+      left: 12px;
+    }
+
+    .foto::after {
+      bottom: 10px;
+      right: 12px;
     }
 
     /* CONTEÚDO */
-
     .conteudo {
+      position: relative;
+      z-index: 1;
+
       text-align: center;
 
       padding: 25px 20px 10px;
@@ -134,7 +174,6 @@
     }
 
     /* INFORMAÇÕES */
-
     .informacoes {
       padding: 5px 0 8px;
     }
@@ -171,8 +210,6 @@
       line-height: 1.4;
     }
 
-    /* LINHA */
-
     .linha {
       width: 45px;
       height: 1px;
@@ -183,21 +220,29 @@
     }
 
     /* BOTÕES */
-
     .botoes {
-      padding: 5px 22px 15px;
+      position: relative;
+      z-index: 1;
+
+      padding: 8px 28px 18px;
     }
 
     .botao {
-      display: block;
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
 
       width: 100%;
 
-      margin: 10px 0;
+      margin: 12px 0;
 
-      padding: 13px 15px;
+      padding: 14px 18px;
 
-      border-radius: 50px;
+      border-radius: 12px;
 
       text-align: center;
 
@@ -206,47 +251,83 @@
       font-family: Georgia, "Times New Roman", serif;
 
       font-size: 0.94rem;
+      font-weight: bold;
 
-      transition: transform 0.2s ease;
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
     }
 
     .botao:active {
-      transform: scale(0.98);
+      transform: translateY(0);
     }
 
+    /* INDICADOR DE BOTÃO */
+    .botao::after {
+      content: "›";
+
+      position: absolute;
+
+      right: 18px;
+
+      font-size: 1.25rem;
+
+      line-height: 1;
+    }
+
+    /* CONFIRMAR */
     .confirmar {
       color: #ffffff;
 
       background:
         linear-gradient(
           135deg,
-          #ad7d0b,
-          #d0a94d
+          #a9780b,
+          #d2ad55
         );
 
+      border: 1px solid #b8860b;
+
       box-shadow:
-        0 5px 15px rgba(184, 134, 11, 0.2);
+        0 6px 16px rgba(184, 134, 11, 0.22);
     }
 
+    /* LOCALIZAÇÃO */
     .localizacao {
-      color: #705a35;
+      color: #6d5734;
 
       background: #f3e8d4;
 
-      border: 1px solid rgba(184, 134, 11, 0.25);
+      border: 1px solid rgba(184, 134, 11, 0.35);
+
+      box-shadow:
+        0 4px 12px rgba(80, 60, 30, 0.08);
     }
 
+    /* MANUAL */
     .manual {
-      color: #705a35;
+      color: #6d5734;
 
       background: #fffaf1;
 
       border: 1px solid #c7a45a;
+
+      box-shadow:
+        0 4px 12px rgba(80, 60, 30, 0.06);
     }
 
     /* RODAPÉ */
-
     .rodape {
+      position: relative;
+      z-index: 1;
+
       padding: 10px 25px 25px;
 
       text-align: center;
@@ -284,7 +365,6 @@
     }
 
     /* TELEMÓVEIS PEQUENOS */
-
     @media (max-width: 380px) {
 
       body {
@@ -296,19 +376,25 @@
       }
 
       .cabecalho h1 {
-        font-size: 1.85rem;
+        font-size: 1.8rem;
       }
 
       .foto {
         height: 190px;
+        margin: 0 20px;
       }
 
       .nomes {
         font-size: 1.65rem;
       }
 
+      .botoes {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
       .botao {
-        padding: 12px;
+        padding: 13px;
       }
     }
   </style>
@@ -319,39 +405,38 @@
   <main class="convite">
 
     <!-- CABEÇALHO -->
-
     <header class="cabecalho">
 
       <h1>
-        Wilson &amp; Anastácia
-      </h1>
-
-      <p>
         Convite de Noivado
-      </p>
+      </h1>
 
     </header>
 
 
-    <!-- FOTOGRAFIA
-         A imagem será colocada aqui posteriormente. -->
-
+    <!-- ESPAÇO PARA A FOTO / HISTÓRIA -->
     <section class="foto">
 
-      Fotografia do casal
+      A nossa história começa aqui
 
     </section>
 
 
-    <!-- CONTEÚDO -->
-
+    <!-- CONTEÚDO PRINCIPAL -->
     <section class="conteudo">
 
       <h2 class="nomes">
+
         Wilson
-        <span class="ampersand">&amp;</span>
+
+        <span class="ampersand">
+          &amp;
+        </span>
+
         Anastácia
+
       </h2>
+
 
       <p class="mensagem">
         Vamos celebrar o nosso noivado!
@@ -359,14 +444,17 @@
 
 
       <!-- INFORMAÇÕES -->
-
       <div class="informacoes">
 
         <div class="informacao">
 
-          <span class="icone">📅</span>
+          <span class="icone">
+            📅
+          </span>
 
-          <strong>Data</strong>
+          <strong>
+            Data
+          </strong>
 
           <span>
             03 de outubro de 2026
@@ -380,9 +468,13 @@
 
         <div class="informacao">
 
-          <span class="icone">⏰</span>
+          <span class="icone">
+            ⏰
+          </span>
 
-          <strong>Horário</strong>
+          <strong>
+            Horário
+          </strong>
 
           <span>
             18h00
@@ -396,9 +488,13 @@
 
         <div class="informacao">
 
-          <span class="icone">📍</span>
+          <span class="icone">
+            📍
+          </span>
 
-          <strong>Local</strong>
+          <strong>
+            Local
+          </strong>
 
           <span>
             Salão de Eventos UTT<br>
@@ -413,7 +509,6 @@
 
 
     <!-- BOTÕES -->
-
     <section class="botoes">
 
       <a
@@ -422,7 +517,8 @@
         target="_blank"
         rel="noopener noreferrer">
 
-        💌 &nbsp; Confirmar Presença
+        💌
+        Confirmar Presença
 
       </a>
 
@@ -433,7 +529,8 @@
         target="_blank"
         rel="noopener noreferrer">
 
-        📍 &nbsp; Ver Localização
+        📍
+        Ver Localização
 
       </a>
 
@@ -443,7 +540,8 @@
         class="botao manual"
         onclick="alert('O Manual do Bom Convidado será disponibilizado aqui.'); return false;">
 
-        📖 &nbsp; Manual do Bom Convidado
+        📖
+        Manual do Bom Convidado
 
       </a>
 
@@ -451,7 +549,6 @@
 
 
     <!-- RODAPÉ -->
-
     <footer class="rodape">
 
       <div class="rodape-linha"></div>
@@ -471,6 +568,3 @@
 
 </body>
 </html>
-
-
-
