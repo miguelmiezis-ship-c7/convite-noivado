@@ -4,114 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Wilson & Anastácia — Estamos Noivos!</title>
+  <title>Wilson & Anastácia — Convite de Noivado</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
+      padding: 18px 12px;
       min-height: 100vh;
+
       font-family: Georgia, "Times New Roman", serif;
+
       background:
-        radial-gradient(circle at top, #fffaf0 0%, #f7eddc 45%, #efe1c9 100%);
-      color: #4a4035;
-      display: flex;
-      justify-content: center;
-      padding: 25px 15px;
+        radial-gradient(
+          circle at top,
+          #fffaf0 0%,
+          #f7eddc 55%,
+          #eee0c8 100%
+        );
+
+      color: #514638;
     }
 
     .convite {
       width: 100%;
-      max-width: 520px;
-      background: rgba(255, 253, 248, 0.97);
+      max-width: 500px;
+      margin: 0 auto;
+
+      background: #fffdf8;
+
       border: 1px solid rgba(184, 134, 11, 0.35);
-      border-radius: 28px;
-      overflow: hidden;
+      border-radius: 24px;
+
       box-shadow:
-        0 18px 50px rgba(80, 60, 30, 0.16),
-        0 2px 8px rgba(80, 60, 30, 0.08);
-      position: relative;
-    }
+        0 12px 35px rgba(80, 60, 30, 0.14);
 
-    /* Detalhes dourados dos cantos */
-    .convite::before,
-    .convite::after {
-      content: "";
-      position: absolute;
-      width: 90px;
-      height: 90px;
-      border: 1px solid rgba(184, 134, 11, 0.35);
-      pointer-events: none;
-    }
-
-    .convite::before {
-      top: 18px;
-      left: 18px;
-      border-right: none;
-      border-bottom: none;
-      border-radius: 18px 0 0 0;
-    }
-
-    .convite::after {
-      right: 18px;
-      bottom: 18px;
-      border-left: none;
-      border-top: none;
-      border-radius: 0 0 18px 0;
+      overflow: hidden;
     }
 
     /* CABEÇALHO */
 
-    .topo {
-      padding: 42px 25px 30px;
+    .cabecalho {
       text-align: center;
-      background:
-        linear-gradient(
-          135deg,
-          #fffaf0,
-          #f8edd9
-        );
+      padding: 32px 20px 22px;
     }
 
-    .pequeno-titulo {
-      margin: 0 0 12px;
-      font-size: 0.78rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #9a7422;
-      font-weight: bold;
-    }
-
-    .titulo {
+    .cabecalho h1 {
       margin: 0;
-      font-size: 2.45rem;
-      line-height: 1.05;
+
       color: #b8860b;
+
+      font-size: 2.15rem;
       font-weight: normal;
+
       letter-spacing: 1px;
     }
 
-    .subtitulo {
-      margin: 14px 0 0;
-      font-size: 1.05rem;
-      color: #6d6255;
+    .cabecalho p {
+      margin: 9px 0 0;
+
+      color: #766858;
+
+      font-size: 0.95rem;
       font-style: italic;
     }
 
-    /* ÁREA RESERVADA PARA FOTOGRAFIA */
+    /* ÁREA DA FOTOGRAFIA */
 
-    .foto-area {
-      margin: 0 22px;
-      height: 260px;
-      border-radius: 22px;
-      border: 1px solid rgba(184, 134, 11, 0.35);
+    .foto {
+      margin: 0 18px;
+
+      height: 220px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(184, 134, 11, 0.3);
+
       background:
         linear-gradient(
           135deg,
@@ -119,41 +90,32 @@
           #f8efdf,
           #dfc69c
         );
+
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
 
-    .foto-area::before {
-      content: "♡";
-      position: absolute;
-      font-size: 8rem;
-      color: rgba(255, 255, 255, 0.38);
-    }
+      color: #987535;
 
-    .foto-texto {
-      position: relative;
-      z-index: 2;
-      color: #8c6b2c;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    /* NOMES */
+    /* CONTEÚDO */
 
-    .nomes {
+    .conteudo {
       text-align: center;
-      padding: 28px 20px 10px;
+
+      padding: 25px 20px 10px;
     }
 
-    .nomes h2 {
+    .nomes {
       margin: 0;
-      color: #5b4b38;
-      font-size: 2rem;
+
+      color: #5c4c39;
+
+      font-size: 1.85rem;
       font-weight: normal;
     }
 
@@ -162,151 +124,191 @@
       font-style: italic;
     }
 
-    .frase {
-      margin: 10px 0 0;
-      color: #887968;
-      font-size: 1rem;
+    .mensagem {
+      margin: 9px 0 20px;
+
+      color: #806f5d;
+
+      font-size: 0.98rem;
       font-style: italic;
     }
 
     /* INFORMAÇÕES */
 
-    .detalhes {
-      margin: 20px;
-      padding: 25px 20px;
-      background: #fffaf2;
-      border: 1px solid rgba(184, 134, 11, 0.2);
-      border-radius: 20px;
-      text-align: center;
+    .informacoes {
+      padding: 5px 0 8px;
     }
 
-    .detalhe {
-      margin: 15px 0;
+    .informacao {
+      margin: 13px 0;
     }
 
-    .icone {
+    .informacao .icone {
       display: block;
-      font-size: 1.35rem;
-      margin-bottom: 5px;
+
+      margin-bottom: 4px;
+
+      font-size: 1.15rem;
     }
 
-    .detalhe strong {
+    .informacao strong {
       display: block;
-      color: #6a563e;
-      font-size: 0.98rem;
+
+      color: #66543f;
+
+      font-size: 0.92rem;
     }
 
-    .detalhe span {
+    .informacao span {
       display: block;
-      margin-top: 4px;
-      color: #8a7a68;
-      font-size: 0.94rem;
-      line-height: 1.5;
+
+      margin-top: 3px;
+
+      color: #837565;
+
+      font-size: 0.92rem;
+
+      line-height: 1.4;
     }
 
-    .separador {
-      width: 55px;
+    /* LINHA */
+
+    .linha {
+      width: 45px;
       height: 1px;
-      background: #c7a45a;
-      margin: 18px auto;
+
+      margin: 15px auto;
+
+      background: #c8a45c;
     }
 
     /* BOTÕES */
 
-    .acoes {
-      padding: 5px 25px 20px;
+    .botoes {
+      padding: 5px 22px 15px;
     }
 
-    .button {
+    .botao {
       display: block;
+
       width: 100%;
-      margin: 13px 0;
-      padding: 15px 18px;
+
+      margin: 10px 0;
+
+      padding: 13px 15px;
+
       border-radius: 50px;
-      text-decoration: none;
+
       text-align: center;
+
+      text-decoration: none;
+
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 0.98rem;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      font-size: 0.94rem;
+
+      transition: transform 0.2s ease;
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button:active {
+    .botao:active {
       transform: scale(0.98);
     }
 
-    .principal {
-      color: white;
-      background: linear-gradient(135deg, #b8860b, #d4af5a);
-      box-shadow: 0 7px 18px rgba(184, 134, 11, 0.25);
+    .confirmar {
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ad7d0b,
+          #d0a94d
+        );
+
+      box-shadow:
+        0 5px 15px rgba(184, 134, 11, 0.2);
     }
 
-    .secundario {
-      color: #725b35;
-      background: #f4ead8;
-      border: 1px solid rgba(184, 134, 11, 0.3);
+    .localizacao {
+      color: #705a35;
+
+      background: #f3e8d4;
+
+      border: 1px solid rgba(184, 134, 11, 0.25);
     }
 
     .manual {
-      color: #725b35;
-      background: #fffaf2;
+      color: #705a35;
+
+      background: #fffaf1;
+
       border: 1px solid #c7a45a;
     }
 
     /* RODAPÉ */
 
     .rodape {
-      padding: 10px 30px 35px;
+      padding: 10px 25px 25px;
+
       text-align: center;
     }
 
-    .linha-dourada {
-      width: 80px;
+    .rodape-linha {
+      width: 55px;
       height: 1px;
+
+      margin: 0 auto 15px;
+
       background: #c7a45a;
-      margin: 0 auto 20px;
     }
 
     .rodape p {
       margin: 0;
+
       color: #817363;
-      font-size: 0.92rem;
-      line-height: 1.6;
+
+      font-size: 0.85rem;
+
+      line-height: 1.5;
+
       font-style: italic;
     }
 
     .coracao {
       display: block;
-      margin-top: 12px;
+
+      margin-top: 8px;
+
       color: #b8860b;
-      font-size: 1.4rem;
+
+      font-size: 1.2rem;
     }
 
-    /* RESPONSIVO */
+    /* TELEMÓVEIS PEQUENOS */
 
-    @media (max-width: 400px) {
+    @media (max-width: 380px) {
+
       body {
-        padding: 12px 8px;
+        padding: 10px 7px;
       }
 
-      .convite {
-        border-radius: 22px;
+      .cabecalho {
+        padding-top: 25px;
       }
 
-      .titulo {
-        font-size: 2rem;
+      .cabecalho h1 {
+        font-size: 1.85rem;
       }
 
-      .nomes h2 {
-        font-size: 1.7rem;
+      .foto {
+        height: 190px;
       }
 
-      .foto-area {
-        height: 230px;
+      .nomes {
+        font-size: 1.65rem;
+      }
+
+      .botao {
+        padding: 12px;
       }
     }
   </style>
@@ -318,96 +320,92 @@
 
     <!-- CABEÇALHO -->
 
-    <header class="topo">
+    <header class="cabecalho">
 
-      <p class="pequeno-titulo">
-        Clique para assistir
-      </p>
-
-      <h1 class="titulo">
-        Estamos Noivos!
+      <h1>
+        Wilson &amp; Anastácia
       </h1>
 
-      <p class="subtitulo">
-        Um momento especial merece ser celebrado.
+      <p>
+        Convite de Noivado
       </p>
 
     </header>
 
 
     <!-- FOTOGRAFIA
-         A fotografia será colocada aqui posteriormente. -->
+         A imagem será colocada aqui posteriormente. -->
 
-    <section class="foto-area">
+    <section class="foto">
 
-      <div class="foto-texto">
-        Nossa história começa aqui
-      </div>
+      Fotografia do casal
 
     </section>
 
 
-    <!-- NOMES -->
+    <!-- CONTEÚDO -->
 
-    <section class="nomes">
+    <section class="conteudo">
 
-      <h2>
-        Wilson <span class="ampersand">&amp;</span> Anastácia
+      <h2 class="nomes">
+        Wilson
+        <span class="ampersand">&amp;</span>
+        Anastácia
       </h2>
 
-      <p class="frase">
+      <p class="mensagem">
         Vamos celebrar o nosso noivado!
       </p>
 
-    </section>
+
+      <!-- INFORMAÇÕES -->
+
+      <div class="informacoes">
+
+        <div class="informacao">
+
+          <span class="icone">📅</span>
+
+          <strong>Data</strong>
+
+          <span>
+            03 de outubro de 2026
+          </span>
+
+        </div>
 
 
-    <!-- INFORMAÇÕES -->
-
-    <section class="detalhes">
-
-      <div class="detalhe">
-
-        <span class="icone">♡</span>
-
-        <strong>Data</strong>
-
-        <span>
-          03 de outubro de 2026
-        </span>
-
-      </div>
+        <div class="linha"></div>
 
 
-      <div class="separador"></div>
+        <div class="informacao">
+
+          <span class="icone">⏰</span>
+
+          <strong>Horário</strong>
+
+          <span>
+            18h00
+          </span>
+
+        </div>
 
 
-      <div class="detalhe">
-
-        <span class="icone">⏰</span>
-
-        <strong>Horário</strong>
-
-        <span>
-          Às 18h
-        </span>
-
-      </div>
+        <div class="linha"></div>
 
 
-      <div class="separador"></div>
+        <div class="informacao">
 
+          <span class="icone">📍</span>
 
-      <div class="detalhe">
+          <strong>Local</strong>
 
-        <span class="icone">📍</span>
+          <span>
+            Salão de Eventos UTT<br>
+            Rua do Weza Paradise
+          </span>
 
-        <strong>Local</strong>
-
-        <span>
-          Salão de Eventos UTT<br>
-          Rua do Weza Paradise
-        </span>
+        </div>
 
       </div>
 
@@ -416,31 +414,37 @@
 
     <!-- BOTÕES -->
 
-    <section class="acoes">
+    <section class="botoes">
 
       <a
         href="https://forms.gle/fWTGRnVkcBpypAVR7"
-        class="button principal"
+        class="botao confirmar"
         target="_blank"
         rel="noopener noreferrer">
+
         💌 &nbsp; Confirmar Presença
+
       </a>
 
 
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
-        class="button secundario"
+        class="botao localizacao"
         target="_blank"
         rel="noopener noreferrer">
+
         📍 &nbsp; Ver Localização
+
       </a>
 
 
       <a
         href="#"
-        class="button manual"
+        class="botao manual"
         onclick="alert('O Manual do Bom Convidado será disponibilizado aqui.'); return false;">
+
         📖 &nbsp; Manual do Bom Convidado
+
       </a>
 
     </section>
@@ -450,14 +454,16 @@
 
     <footer class="rodape">
 
-      <div class="linha-dourada"></div>
+      <div class="rodape-linha"></div>
 
       <p>
         Será uma alegria celebrar este momento
         especial convosco.
       </p>
 
-      <span class="coracao">♡</span>
+      <span class="coracao">
+        ♡
+      </span>
 
     </footer>
 
@@ -465,4 +471,6 @@
 
 </body>
 </html>
+
+
 
