@@ -33,22 +33,19 @@
       color: #514638;
     }
 
-    /* =====================================
+    /* ================================
        MOLDURA PRINCIPAL
-       ===================================== */
+       ================================ */
 
     .convite {
       position: relative;
-
       width: 100%;
       max-width: 500px;
-
       margin: 0 auto;
 
       background: #fffdf8;
 
       border: 1px solid rgba(184, 134, 11, 0.45);
-
       border-radius: 24px;
 
       box-shadow:
@@ -56,8 +53,6 @@
 
       overflow: hidden;
     }
-
-    /* Moldura decorativa interna */
 
     .convite::before {
       content: "";
@@ -70,16 +65,14 @@
       bottom: 10px;
 
       border: 1px solid rgba(184, 134, 11, 0.22);
-
       border-radius: 18px;
 
       pointer-events: none;
     }
 
-
-    /* =====================================
+    /* ================================
        CABEÇALHO
-       ===================================== */
+       ================================ */
 
     .cabecalho {
       position: relative;
@@ -87,21 +80,7 @@
 
       text-align: center;
 
-      padding: 34px 22px 22px;
-    }
-
-    .pequeno-detalhe {
-      display: block;
-
-      margin-bottom: 9px;
-
-      color: #c19a45;
-
-      font-size: 0.72rem;
-
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
+      padding: 34px 22px 24px;
     }
 
     .cabecalho h1 {
@@ -109,8 +88,7 @@
 
       color: #a9780b;
 
-      font-size: 1.95rem;
-
+      font-size: 2rem;
       font-weight: normal;
 
       letter-spacing: 1.8px;
@@ -125,10 +103,9 @@
       background: #c7a45a;
     }
 
-
-    /* =====================================
-       ESPAÇO DA FOTO DOS NOIVOS
-       ===================================== */
+    /* ================================
+       FOTO DOS NOIVOS
+       ================================ */
 
     .foto {
       position: relative;
@@ -151,7 +128,6 @@
         );
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -168,14 +144,11 @@
 
       text-align: center;
 
-      font-size: 0.9rem;
-
+      font-size: 0.92rem;
       font-style: italic;
 
       letter-spacing: 0.5px;
     }
-
-    /* Quando a fotografia real for adicionada */
 
     .foto img {
       width: 100%;
@@ -185,8 +158,6 @@
 
       display: block;
     }
-
-    /* Decoração da moldura */
 
     .foto::before,
     .foto::after {
@@ -211,30 +182,17 @@
       right: 12px;
     }
 
-
-    /* =====================================
-       CONTEÚDO PRINCIPAL
-       ===================================== */
+    /* ================================
+       CONTEÚDO
+       ================================ */
 
     .conteudo {
       position: relative;
       z-index: 1;
 
-      padding: 26px 22px 10px;
-
       text-align: center;
-    }
 
-    .introducao {
-      margin: 0 0 8px;
-
-      color: #9a805c;
-
-      font-size: 0.72rem;
-
-      letter-spacing: 2.5px;
-
-      text-transform: uppercase;
+      padding: 27px 22px 10px;
     }
 
     .nomes {
@@ -243,7 +201,6 @@
       color: #574735;
 
       font-size: 1.9rem;
-
       font-weight: normal;
 
       letter-spacing: 0.4px;
@@ -269,10 +226,9 @@
       font-style: italic;
     }
 
-
-    /* =====================================
-       INFORMAÇÕES DO EVENTO
-       ===================================== */
+    /* ================================
+       INFORMAÇÕES
+       ================================ */
 
     .informacoes {
       padding: 3px 0 8px;
@@ -297,9 +253,9 @@
 
       color: #66543f;
 
-      font-size: 0.75rem;
+      font-size: 0.78rem;
 
-      letter-spacing: 1.8px;
+      letter-spacing: 1.7px;
 
       text-transform: uppercase;
     }
@@ -318,15 +274,14 @@
       width: 42px;
       height: 1px;
 
-      margin: 14px auto;
+      margin: 15px auto;
 
       background: #c8a45c;
     }
 
-
-    /* =====================================
+    /* ================================
        BOTÕES
-       ===================================== */
+       ================================ */
 
     .botoes {
       position: relative;
@@ -382,8 +337,6 @@
       transform: translateY(0);
     }
 
-    /* Seta que mostra claramente que é clicável */
-
     .botao::after {
       content: "›";
 
@@ -436,10 +389,9 @@
         0 4px 12px rgba(80, 60, 30, 0.06);
     }
 
-
-    /* =====================================
+    /* ================================
        RODAPÉ
-       ===================================== */
+       ================================ */
 
     .rodape {
       position: relative;
@@ -483,10 +435,9 @@
       font-size: 1.2rem;
     }
 
-
-    /* =====================================
+    /* ================================
        JANELA DO MANUAL
-       ===================================== */
+       ================================ */
 
     .manual-overlay {
       display: none;
@@ -502,7 +453,6 @@
       background: rgba(40, 30, 18, 0.84);
 
       align-items: center;
-
       justify-content: center;
     }
 
@@ -514,7 +464,6 @@
       position: relative;
 
       width: 100%;
-
       max-width: 520px;
 
       max-height: 94vh;
@@ -598,10 +547,9 @@
       font-style: italic;
     }
 
-
-    /* =====================================
-       VISUALIZAÇÃO AMPLIADA DO MANUAL
-       ===================================== */
+    /* ================================
+       IMAGEM AMPLIADA
+       ================================ */
 
     .imagem-ampliada {
       display: none;
@@ -617,7 +565,6 @@
       background: rgba(20, 15, 10, 0.94);
 
       align-items: center;
-
       justify-content: center;
     }
 
@@ -656,10 +603,9 @@
       cursor: pointer;
     }
 
-
-    /* =====================================
+    /* ================================
        TELEMÓVEIS PEQUENOS
-       ===================================== */
+       ================================ */
 
     @media (max-width: 380px) {
 
@@ -707,21 +653,13 @@
   </style>
 </head>
 
-
 <body>
 
   <main class="convite">
 
-
-    <!-- =================================
-         CABEÇALHO
-         ================================= -->
+    <!-- CABEÇALHO -->
 
     <header class="cabecalho">
-
-      <span class="pequeno-detalhe">
-        Com carinho
-      </span>
 
       <h1>
         Convite de Noivado
@@ -732,9 +670,7 @@
     </header>
 
 
-    <!-- =================================
-         FOTO DOS NOIVOS
-         ================================= -->
+    <!-- FOTO DOS NOIVOS -->
 
     <section class="foto">
 
@@ -745,29 +681,18 @@
       <!--
       FUTURA FOTO DOS NOIVOS:
 
-      Quando tiveres a fotografia, basta
-      substituir o conteúdo acima por:
-
       <img
         src="foto-noivos.jpg"
         alt="Wilson e Anastácia"
       >
-
       -->
-
 
     </section>
 
 
-    <!-- =================================
-         CONTEÚDO PRINCIPAL
-         ================================= -->
+    <!-- CONTEÚDO -->
 
     <section class="conteudo">
-
-      <p class="introducao">
-        Com alegria, convidamos-vos a celebrar
-      </p>
 
       <h2 class="nomes">
 
@@ -781,17 +706,13 @@
 
       </h2>
 
+
       <p class="mensagem">
         Vamos celebrar o nosso noivado!
       </p>
 
 
-      <!-- =================================
-           INFORMAÇÕES
-           ================================= -->
-
       <div class="informacoes">
-
 
         <div class="informacao">
 
@@ -850,20 +771,14 @@
 
         </div>
 
-
       </div>
 
     </section>
 
 
-    <!-- =================================
-         BOTÕES
-         ================================= -->
+    <!-- BOTÕES -->
 
     <section class="botoes">
-
-
-      <!-- CONFIRMAR PRESENÇA -->
 
       <a
         href="https://forms.gle/fWTGRnVkcBpypAVR7"
@@ -877,8 +792,6 @@
       </a>
 
 
-      <!-- LOCALIZAÇÃO -->
-
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
         class="botao localizacao"
@@ -891,8 +804,6 @@
       </a>
 
 
-      <!-- MANUAL -->
-
       <button
         type="button"
         class="botao manual"
@@ -903,13 +814,10 @@
 
       </button>
 
-
     </section>
 
 
-    <!-- =================================
-         RODAPÉ
-         ================================= -->
+    <!-- RODAPÉ -->
 
     <footer class="rodape">
 
@@ -926,22 +834,17 @@
 
     </footer>
 
-
   </main>
 
 
-  <!-- =====================================
-       JANELA DO MANUAL
-       ===================================== -->
+  <!-- JANELA DO MANUAL -->
 
   <div
     id="manualOverlay"
     class="manual-overlay"
     onclick="fecharManualFora(event)">
 
-
     <div class="manual-caixa">
-
 
       <button
         type="button"
@@ -959,8 +862,6 @@
       </h2>
 
 
-      <!-- IMAGEM REAL DO MANUAL -->
-
       <img
         src="1789604609562.jpg"
         alt="Manual do Bom Convidado"
@@ -973,21 +874,17 @@
         Toque na imagem para visualizar com mais detalhe.
       </p>
 
-
     </div>
 
   </div>
 
 
-  <!-- =====================================
-       IMAGEM AMPLIADA
-       ===================================== -->
+  <!-- IMAGEM AMPLIADA -->
 
   <div
     id="imagemAmpliada"
     class="imagem-ampliada"
     onclick="fecharAmpliadaFora(event)">
-
 
     <button
       type="button"
@@ -1005,13 +902,8 @@
       alt="Manual do Bom Convidado ampliado"
     >
 
-
   </div>
 
-
-  <!-- =====================================
-       JAVASCRIPT
-       ===================================== -->
 
   <script>
 
@@ -1083,8 +975,6 @@
     }
 
 
-    /* Tecla ESC */
-
     document.addEventListener(
       "keydown",
       function(event) {
@@ -1101,7 +991,6 @@
     );
 
   </script>
-
 
 </body>
 </html>
