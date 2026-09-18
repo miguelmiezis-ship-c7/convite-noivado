@@ -387,6 +387,9 @@
 
       box-shadow:
         0 4px 12px rgba(80, 60, 30, 0.06);
+
+      appearance: none;
+      -webkit-appearance: none;
     }
 
     /* ================================
@@ -448,6 +451,9 @@
 
       inset: 0;
 
+      width: 100%;
+      height: 100%;
+
       padding: 15px;
 
       background: rgba(40, 30, 18, 0.84);
@@ -468,7 +474,8 @@
 
       max-height: 94vh;
 
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       padding: 18px;
 
@@ -482,6 +489,22 @@
         0 15px 45px rgba(0,0,0,0.3);
 
       text-align: center;
+
+      animation: aparecerManual 0.25s ease;
+    }
+
+    @keyframes aparecerManual {
+
+      from {
+        opacity: 0;
+        transform: scale(0.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
     }
 
     .manual-titulo {
@@ -496,15 +519,23 @@
       letter-spacing: 0.4px;
     }
 
+    /* ================================
+       IMAGEM DO MANUAL
+       ================================ */
+
     .manual-imagem {
       display: block;
 
       width: 100%;
+      max-width: 100%;
+
       height: auto;
 
       max-height: 72vh;
 
       object-fit: contain;
+
+      margin: 0 auto;
 
       border-radius: 10px;
 
@@ -513,6 +544,8 @@
       background: #f7eddc;
 
       cursor: zoom-in;
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     .fechar-manual {
@@ -520,6 +553,8 @@
 
       top: 10px;
       right: 12px;
+
+      z-index: 2;
 
       width: 34px;
       height: 34px;
@@ -533,6 +568,10 @@
       color: #6d5734;
 
       font-size: 1.25rem;
+
+      line-height: 34px;
+
+      padding: 0;
 
       cursor: pointer;
     }
@@ -560,6 +599,9 @@
 
       inset: 0;
 
+      width: 100%;
+      height: 100%;
+
       padding: 12px;
 
       background: rgba(20, 15, 10, 0.94);
@@ -573,16 +615,25 @@
     }
 
     .imagem-ampliada img {
+      display: block;
+
       max-width: 100%;
       max-height: 94vh;
+
+      width: auto;
+      height: auto;
 
       object-fit: contain;
 
       border-radius: 6px;
+
+      cursor: zoom-out;
     }
 
     .fechar-ampliada {
       position: fixed;
+
+      z-index: 10001;
 
       top: 12px;
       right: 15px;
@@ -599,6 +650,10 @@
       color: #5a4935;
 
       font-size: 1.35rem;
+
+      line-height: 38px;
+
+      padding: 0;
 
       cursor: pointer;
     }
@@ -648,6 +703,16 @@
 
       .manual-caixa {
         padding: 12px;
+
+        max-height: 95vh;
+      }
+
+      .manual-titulo {
+        margin-top: 5px;
+      }
+
+      .manual-imagem {
+        max-height: 76vh;
       }
     }
   </style>
@@ -683,13 +748,13 @@
       </div>
 
       <!--
-        Quando tiveres a fotografia dos noivos,
-        podes substituir o conteúdo acima por:
+      QUANDO QUISERES COLOCAR A FOTO DOS NOIVOS,
+      REMOVE O "foto-texto" ACIMA E USA:
 
-        <img
-          src="foto-noivos.jpg"
-          alt="Wilson e Anastácia"
-        >
+      <img
+        src="./foto-noivos.jpg"
+        alt="Wilson e Anastácia"
+      >
       -->
 
     </section>
@@ -702,6 +767,7 @@
     <section class="conteudo">
 
       <h2 class="nomes">
+
         Wilson
 
         <span class="ampersand">
@@ -709,6 +775,7 @@
         </span>
 
         Anastácia
+
       </h2>
 
 
@@ -801,7 +868,7 @@
       </a>
 
 
-      <!-- LOCALIZAÇÃO -->
+      <!-- VER LOCALIZAÇÃO -->
 
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
@@ -852,16 +919,20 @@
   </main>
 
 
-  <!-- ================================
+  <!-- ==================================================
        JANELA DO MANUAL
-       ================================ -->
+       ================================================== -->
 
   <div
     id="manualOverlay"
     class="manual-overlay"
-    onclick="fecharManualFora(event)">
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="manualTitulo">
 
     <div class="manual-caixa">
+
+      <!-- BOTÃO FECHAR -->
 
       <button
         type="button"
@@ -874,19 +945,27 @@
       </button>
 
 
-      <h2 class="manual-titulo">
+      <!-- TÍTULO -->
+
+      <h2
+        id="manualTitulo"
+        class="manual-titulo">
+
         Manual do Bom Convidado
+
       </h2>
 
 
-      <!--
-        IMPORTANTE:
-        Esta imagem deve estar na mesma pasta
-        do index.html.
-      -->
+      <!-- ==================================================
+           IMAGEM DO MANUAL
+
+           IMPORTANTE:
+           1789604609562.jpg está na mesma pasta
+           do index.html.
+           ================================================== -->
 
       <img
-        src="1789604609562.jpg"
+        src="./1789604609562.jpg"
         alt="Manual do Bom Convidado"
         class="manual-imagem"
         onclick="ampliarManual()"
@@ -902,14 +981,18 @@
   </div>
 
 
-  <!-- ================================
+  <!-- ==================================================
        IMAGEM AMPLIADA
-       ================================ -->
+       ================================================== -->
 
   <div
     id="imagemAmpliada"
     class="imagem-ampliada"
-    onclick="fecharAmpliadaFora(event)">
+    role="dialog"
+    aria-modal="true"
+    aria-label="Imagem ampliada do Manual do Bom Convidado">
+
+    <!-- BOTÃO FECHAR -->
 
     <button
       type="button"
@@ -922,121 +1005,91 @@
     </button>
 
 
+    <!-- IMAGEM -->
+
     <img
-      src="1789604609562.jpg"
+      src="./1789604609562.jpg"
       alt="Manual do Bom Convidado ampliado"
+      onclick="fecharAmpliada()"
     >
 
   </div>
 
 
-  <!-- ================================
+  <!-- ==================================================
        JAVASCRIPT
-       ================================ -->
+       ================================================== -->
 
   <script>
 
-    /* =================================
+    /* ================================================
+       ELEMENTOS
+       ================================================ */
+
+    const manualOverlay =
+      document.getElementById("manualOverlay");
+
+    const imagemAmpliada =
+      document.getElementById("imagemAmpliada");
+
+
+    /* ================================================
        ABRIR MANUAL
-       ================================= */
+       ================================================ */
 
     function abrirManual() {
 
-      const manual =
-        document.getElementById("manualOverlay");
-
-      manual.classList.add("aberto");
+      manualOverlay.classList.add("aberto");
 
       document.body.style.overflow = "hidden";
+
     }
 
 
-    /* =================================
+    /* ================================================
        FECHAR MANUAL
-       ================================= */
+       ================================================ */
 
     function fecharManual() {
 
-      const manual =
-        document.getElementById("manualOverlay");
-
-      manual.classList.remove("aberto");
+      manualOverlay.classList.remove("aberto");
 
       document.body.style.overflow = "";
+
     }
 
 
-    /* =================================
-       FECHAR MANUAL AO TOCAR FORA
-       ================================= */
-
-    function fecharManualFora(event) {
-
-      const manual =
-        document.getElementById("manualOverlay");
-
-      if (event.target === manual) {
-
-        fecharManual();
-
-      }
-    }
-
-
-    /* =================================
+    /* ================================================
        AMPLIAR IMAGEM
-       ================================= */
+       ================================================ */
 
     function ampliarManual() {
 
-      const imagem =
-        document.getElementById("imagemAmpliada");
+      imagemAmpliada.classList.add("aberto");
 
-      imagem.classList.add("aberto");
     }
 
 
-    /* =================================
+    /* ================================================
        FECHAR IMAGEM AMPLIADA
-       ================================= */
+       ================================================ */
 
     function fecharAmpliada() {
 
-      const imagem =
-        document.getElementById("imagemAmpliada");
+      imagemAmpliada.classList.remove("aberto");
 
-      imagem.classList.remove("aberto");
     }
 
 
-    /* =================================
-       FECHAR IMAGEM AO TOCAR FORA
-       ================================= */
+    /* ================================================
+       FECHAR MANUAL TOCANDO FORA DA CAIXA
+       ================================================ */
 
-    function fecharAmpliadaFora(event) {
-
-      const imagem =
-        document.getElementById("imagemAmpliada");
-
-      if (event.target === imagem) {
-
-        fecharAmpliada();
-
-      }
-    }
-
-
-    /* =================================
-       TECLA ESC
-       ================================= */
-
-    document.addEventListener(
-      "keydown",
+    manualOverlay.addEventListener(
+      "click",
       function(event) {
 
-        if (event.key === "Escape") {
-
-          fecharAmpliada();
+        if (event.target === manualOverlay) {
 
           fecharManual();
 
@@ -1045,10 +1098,74 @@
       }
     );
 
+
+    /* ================================================
+       FECHAR IMAGEM AMPLIADA TOCANDO NO FUNDO
+       ================================================ */
+
+    imagemAmpliada.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === imagemAmpliada) {
+
+          fecharAmpliada();
+
+        }
+
+      }
+    );
+
+
+    /* ================================================
+       TECLA ESC
+       ================================================ */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          if (
+            imagemAmpliada.classList.contains("aberto")
+          ) {
+
+            fecharAmpliada();
+
+          } else if (
+            manualOverlay.classList.contains("aberto")
+          ) {
+
+            fecharManual();
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* ================================================
+       EVITAR SCROLL DO FUNDO NO MANUAL
+       ================================================ */
+
+    manualOverlay.addEventListener(
+      "touchmove",
+      function(event) {
+
+        if (event.target === manualOverlay) {
+
+          event.preventDefault();
+
+        }
+
+      },
+      { passive: false }
+    );
+
   </script>
 
 </body>
-</html>
-
-
-
+      </html>
