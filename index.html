@@ -7,6 +7,7 @@
   <title>Convite de Noivado — Wilson & Anastácia</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -17,42 +18,55 @@
 
     body {
       margin: 0;
-      padding: 18px 12px;
+      padding: 16px 10px;
       min-height: 100vh;
 
       font-family: Georgia, "Times New Roman", serif;
 
+      color: #4f3823;
+
       background:
         radial-gradient(
           circle at top,
-          #fffaf0 0%,
-          #f7eddc 55%,
-          #eee0c8 100%
+          #fffdf5 0%,
+          #f8efd9 55%,
+          #ead9b9 100%
         );
-
-      color: #514638;
     }
 
-    /* ================================
-       MOLDURA PRINCIPAL
-       ================================ */
+
+    /* =========================================
+       CONVITE PRINCIPAL
+       ========================================= */
 
     .convite {
       position: relative;
+
       width: 100%;
       max-width: 500px;
+
       margin: 0 auto;
 
-      background: #fffdf8;
+      overflow: hidden;
 
-      border: 1px solid rgba(184, 134, 11, 0.45);
-      border-radius: 24px;
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(255,255,255,0.75),
+          transparent 45%
+        ),
+        #fffaf0;
+
+      border: 2px solid #bd8a24;
+
+      border-radius: 26px;
 
       box-shadow:
-        0 12px 35px rgba(80, 60, 30, 0.14);
-
-      overflow: hidden;
+        0 18px 45px rgba(83, 60, 25, 0.18);
     }
+
+
+    /* MOLDURA INTERNA */
 
     .convite::before {
       content: "";
@@ -64,231 +78,407 @@
       right: 10px;
       bottom: 10px;
 
-      border: 1px solid rgba(184, 134, 11, 0.22);
-      border-radius: 18px;
+      border: 1px solid rgba(177, 126, 23, 0.58);
+
+      border-radius: 19px;
 
       pointer-events: none;
+
+      z-index: 10;
     }
 
-    /* ================================
-       CABEÇALHO
-       ================================ */
+
+    /* =========================================
+       DETALHES DECORATIVOS SUPERIORES
+       ========================================= */
 
     .cabecalho {
       position: relative;
-      z-index: 1;
+
+      z-index: 2;
 
       text-align: center;
 
-      padding: 34px 22px 24px;
+      padding:
+        38px
+        25px
+        25px;
     }
+
+
+    .ornamento-topo {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .ornamento-topo span {
+      display: block;
+
+      width: 62px;
+      height: 1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          #bd8a24
+        );
+    }
+
+
+    .ornamento-topo span:last-child {
+      background:
+        linear-gradient(
+          to left,
+          transparent,
+          #bd8a24
+        );
+    }
+
+
+    .ornamento-topo strong {
+      color: #bd8a24;
+
+      font-size: 1.55rem;
+
+      font-weight: normal;
+
+      line-height: 1;
+    }
+
 
     .cabecalho h1 {
       margin: 0;
 
-      color: #a9780b;
+      color: #9a6814;
 
-      font-size: 2rem;
+      font-size: clamp(
+        1.8rem,
+        7vw,
+        2.65rem
+      );
+
       font-weight: normal;
 
-      letter-spacing: 1.8px;
+      letter-spacing: 1.2px;
+
+      line-height: 1.15;
     }
 
-    .linha-titulo {
-      width: 48px;
-      height: 1px;
+
+    .ornamento-titulo {
+      width: 145px;
 
       margin: 13px auto 0;
 
-      background: #c7a45a;
+      position: relative;
+
+      height: 16px;
     }
 
-    /* ================================
+
+    .ornamento-titulo::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      top: 8px;
+
+      height: 1px;
+
+      background: #c69a3b;
+    }
+
+
+    .ornamento-titulo::after {
+      content: "∞";
+
+      position: absolute;
+
+      left: 50%;
+
+      top: -3px;
+
+      transform: translateX(-50%);
+
+      padding: 0 8px;
+
+      color: #c69a3b;
+
+      background: #fffaf0;
+
+      font-size: 1.35rem;
+    }
+
+
+    /* =========================================
        FOTO DOS NOIVOS
-       ================================ */
+       ========================================= */
+
+    .foto-wrapper {
+      position: relative;
+
+      z-index: 2;
+
+      margin: 0 30px;
+    }
+
 
     .foto {
       position: relative;
-      z-index: 1;
 
-      height: 220px;
+      width: 100%;
 
-      margin: 0 24px;
+      height: 255px;
 
-      border-radius: 18px;
+      overflow: hidden;
 
-      border: 1px solid rgba(184, 134, 11, 0.4);
+      border-radius: 22px;
+
+      border: 2px solid #c49331;
 
       background:
         linear-gradient(
           135deg,
           #ead8b8,
-          #f8efdf,
-          #dfc69c
+          #fff7e8,
+          #dec39a
         );
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-
-      color: #987535;
-
       box-shadow:
-        inset 0 0 0 6px rgba(255,255,255,0.22);
+        0 7px 18px rgba(88, 62, 22, 0.13),
+        inset 0 0 0 6px rgba(255,255,255,0.28);
     }
 
-    .foto-texto {
-      padding: 15px;
-
-      text-align: center;
-
-      font-size: 0.92rem;
-      font-style: italic;
-
-      letter-spacing: 0.5px;
-    }
 
     .foto img {
       width: 100%;
       height: 100%;
 
-      object-fit: cover;
-
       display: block;
+
+      object-fit: cover;
     }
+
+
+    /* CORAÇÕES DA FOTO */
 
     .foto::before,
     .foto::after {
-      content: "♡";
-
       position: absolute;
 
-      color: rgba(184, 134, 11, 0.58);
+      z-index: 3;
 
-      font-size: 1.1rem;
+      color: #d2a13b;
 
-      z-index: 2;
+      font-size: 1.45rem;
+
+      text-shadow:
+        0 1px 2px rgba(80,50,15,0.15);
     }
+
 
     .foto::before {
-      top: 10px;
-      left: 12px;
+      content: "♥";
+
+      top: 12px;
+      left: 15px;
     }
+
 
     .foto::after {
+      content: "♡";
+
+      right: 15px;
       bottom: 10px;
-      right: 12px;
     }
 
-    /* ================================
-       CONTEÚDO
-       ================================ */
+
+    /* =========================================
+       NOMES
+       ========================================= */
 
     .conteudo {
       position: relative;
-      z-index: 1;
+
+      z-index: 2;
 
       text-align: center;
 
-      padding: 27px 22px 10px;
+      padding:
+        27px
+        22px
+        8px;
     }
+
 
     .nomes {
       margin: 0;
 
-      color: #574735;
+      color: #4b321f;
 
-      font-size: 1.9rem;
+      font-size: clamp(
+        2rem,
+        9vw,
+        3rem
+      );
+
       font-weight: normal;
 
-      letter-spacing: 0.4px;
+      line-height: 1.05;
+
+      letter-spacing: -0.5px;
     }
+
 
     .ampersand {
-      color: #b8860b;
+      display: inline-block;
+
+      margin: 0 3px;
+
+      color: #c28d25;
+
+      font-size: 1.18em;
 
       font-style: italic;
-
-      padding: 0 3px;
     }
 
+
     .mensagem {
-      margin: 10px 0 22px;
+      margin:
+        12px
+        0
+        24px;
 
-      color: #806f5d;
+      color: #765438;
 
-      font-size: 0.98rem;
+      font-size: 1.05rem;
 
       line-height: 1.5;
 
       font-style: italic;
     }
 
-    /* ================================
-       INFORMAÇÕES
-       ================================ */
+
+    /* =========================================
+       INFORMAÇÕES DO EVENTO
+       ========================================= */
 
     .informacoes {
-      padding: 3px 0 8px;
+      width: 100%;
+
+      max-width: 355px;
+
+      margin: 0 auto;
+
+      text-align: left;
     }
+
 
     .informacao {
-      margin: 14px 0;
+      display: grid;
+
+      grid-template-columns: 55px 1fr;
+
+      align-items: center;
+
+      gap: 10px;
+
+      margin: 16px 0;
     }
+
 
     .informacao .icone {
-      display: block;
+      display: flex;
 
-      margin-bottom: 5px;
+      align-items: center;
+      justify-content: center;
 
-      font-size: 1.1rem;
+      width: 42px;
+      height: 42px;
+
+      color: #b57b12;
+
+      font-size: 1.55rem;
+
+      border: 2px solid #bd8a24;
+
+      border-radius: 50%;
     }
+
 
     .informacao strong {
       display: block;
 
       margin-bottom: 3px;
 
-      color: #66543f;
+      color: #5d3e22;
 
-      font-size: 0.78rem;
+      font-size: 1rem;
 
-      letter-spacing: 1.7px;
-
-      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
 
     .informacao span {
       display: block;
 
-      color: #837565;
+      color: #6f5945;
 
-      font-size: 0.93rem;
+      font-size: 0.94rem;
 
       line-height: 1.45;
     }
 
+
     .linha {
-      width: 42px;
+      width: 72%;
+
       height: 1px;
 
-      margin: 15px auto;
+      margin: 17px auto;
 
-      background: #c8a45c;
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          #cba04a,
+          transparent
+        );
     }
 
-    /* ================================
+
+    /* =========================================
        BOTÕES
-       ================================ */
+       ========================================= */
 
     .botoes {
       position: relative;
-      z-index: 1;
 
-      padding: 8px 28px 18px;
+      z-index: 2;
+
+      width: 100%;
+
+      max-width: 400px;
+
+      margin: 17px auto 0;
+
+      padding:
+        0
+        25px
+        15px;
     }
+
 
     .botao {
       position: relative;
@@ -298,29 +488,36 @@
       align-items: center;
       justify-content: center;
 
-      gap: 8px;
+      gap: 10px;
 
       width: 100%;
 
-      min-height: 49px;
+      min-height: 56px;
 
-      margin: 11px 0;
+      margin: 13px 0;
 
-      padding: 13px 45px 13px 18px;
+      padding:
+        14px
+        50px
+        14px
+        20px;
 
-      border-radius: 12px;
+      border-radius: 30px;
 
       text-align: center;
 
       text-decoration: none;
 
-      font-family: Georgia, "Times New Roman", serif;
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-      font-size: 0.91rem;
+      font-size: 0.98rem;
 
       font-weight: bold;
 
-      letter-spacing: 0.2px;
+      letter-spacing: 0.1px;
 
       cursor: pointer;
 
@@ -329,115 +526,229 @@
         box-shadow 0.2s ease;
     }
 
+
     .botao:hover {
       transform: translateY(-2px);
     }
 
+
     .botao:active {
       transform: translateY(0);
     }
+
 
     .botao::after {
       content: "›";
 
       position: absolute;
 
-      right: 17px;
+      right: 21px;
 
-      font-size: 1.35rem;
+      font-size: 1.55rem;
 
       font-weight: normal;
 
       line-height: 1;
     }
 
+
+    /* CONFIRMAR */
+
     .confirmar {
-      color: #ffffff;
+      color: #fffdf7;
 
       background:
         linear-gradient(
           135deg,
-          #a9780b,
-          #d2ad55
+          #ae7612,
+          #d5a63c,
+          #b77f18
         );
 
-      border: 1px solid #b8860b;
+      border: 1px solid #aa7410;
 
       box-shadow:
-        0 6px 16px rgba(184, 134, 11, 0.22);
+        0 7px 16px rgba(164, 111, 15, 0.28);
     }
+
+
+    /* LOCALIZAÇÃO */
 
     .localizacao {
-      color: #6d5734;
+      color: #684822;
 
-      background: #f3e8d4;
+      background:
+        linear-gradient(
+          135deg,
+          #f8e8c5,
+          #f3dfb5
+        );
 
-      border: 1px solid rgba(184, 134, 11, 0.35);
+      border: 1px solid #d7b36b;
 
       box-shadow:
-        0 4px 12px rgba(80, 60, 30, 0.08);
+        0 4px 12px rgba(100, 72, 30, 0.12);
     }
+
+
+    /* MANUAL */
 
     .manual {
-      color: #6d5734;
+      color: #4e3825;
 
-      background: #fffaf1;
+      background:
+        linear-gradient(
+          135deg,
+          #fff8e8,
+          #f9e9c7
+        );
 
-      border: 1px solid #c7a45a;
+      border: 1px solid #d7b36b;
 
       box-shadow:
-        0 4px 12px rgba(80, 60, 30, 0.06);
+        0 4px 12px rgba(100, 72, 30, 0.1);
     }
 
-    /* ================================
+
+    /* =========================================
+       DETALHES BOTÂNICOS DOS CANTOS
+       ========================================= */
+
+    .folhagem {
+      position: absolute;
+
+      z-index: 1;
+
+      color: rgba(174, 123, 28, 0.72);
+
+      pointer-events: none;
+
+      line-height: 0;
+
+      font-size: 3rem;
+    }
+
+
+    .folhagem.esquerda {
+      left: 9px;
+
+      bottom: 22px;
+
+      transform: rotate(-18deg);
+    }
+
+
+    .folhagem.direita {
+      right: 9px;
+
+      bottom: 22px;
+
+      transform:
+        scaleX(-1)
+        rotate(-18deg);
+    }
+
+
+    .folhagem::before {
+      content: "❧";
+    }
+
+
+    /* =========================================
        RODAPÉ
-       ================================ */
+       ========================================= */
 
     .rodape {
       position: relative;
-      z-index: 1;
 
-      padding: 10px 25px 25px;
+      z-index: 2;
 
       text-align: center;
+
+      padding:
+        10px
+        30px
+        31px;
     }
+
 
     .rodape-linha {
-      width: 55px;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      margin-bottom: 14px;
+    }
+
+
+    .rodape-linha::before,
+    .rodape-linha::after {
+      content: "";
+
+      display: block;
+
+      width: 60px;
+
       height: 1px;
 
-      margin: 0 auto 15px;
-
-      background: #c7a45a;
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          #c49331
+        );
     }
+
+
+    .rodape-linha::after {
+      background:
+        linear-gradient(
+          to left,
+          transparent,
+          #c49331
+        );
+    }
+
+
+    .rodape-linha {
+      color: #bd8a24;
+
+      font-size: 1.25rem;
+    }
+
 
     .rodape p {
       max-width: 330px;
 
       margin: 0 auto;
 
-      color: #817363;
+      color: #73583d;
 
-      font-size: 0.84rem;
+      font-size: 0.86rem;
 
-      line-height: 1.55;
+      line-height: 1.6;
 
       font-style: italic;
     }
 
+
     .coracao {
       display: block;
 
-      margin-top: 8px;
+      margin-top: 10px;
 
-      color: #b8860b;
+      color: #c08b23;
 
-      font-size: 1.2rem;
+      font-size: 1.35rem;
     }
 
-    /* ================================
-       JANELA DO MANUAL
-       ================================ */
+
+    /* =========================================
+       MANUAL — JANELA
+       ========================================= */
 
     .manual-overlay {
       display: none;
@@ -448,22 +759,27 @@
 
       inset: 0;
 
-      padding: 15px;
+      padding: 14px;
 
-      background: rgba(40, 30, 18, 0.84);
+      background:
+        rgba(35, 25, 14, 0.88);
 
       align-items: center;
+
       justify-content: center;
     }
+
 
     .manual-overlay.aberto {
       display: flex;
     }
 
+
     .manual-caixa {
       position: relative;
 
       width: 100%;
+
       max-width: 520px;
 
       max-height: 94vh;
@@ -472,84 +788,98 @@
 
       padding: 18px;
 
-      background: #fffdf8;
+      background: #fffaf0;
 
-      border-radius: 20px;
+      border: 2px solid #bd8a24;
 
-      border: 1px solid #c7a45a;
+      border-radius: 22px;
 
       box-shadow:
-        0 15px 45px rgba(0,0,0,0.3);
+        0 20px 50px rgba(0,0,0,0.35);
 
       text-align: center;
     }
 
+
     .manual-titulo {
-      margin: 3px 40px 15px;
+      margin:
+        4px
+        42px
+        16px;
 
-      color: #8a681d;
+      color: #8f6419;
 
-      font-size: 1.18rem;
+      font-size: 1.25rem;
 
       font-weight: normal;
 
-      letter-spacing: 0.4px;
+      letter-spacing: 0.5px;
     }
+
 
     .manual-imagem {
       display: block;
 
       width: 100%;
+
       height: auto;
 
       max-height: 72vh;
 
       object-fit: contain;
 
-      border-radius: 10px;
+      border-radius: 11px;
 
-      border: 1px solid rgba(184, 134, 11, 0.25);
+      border: 1px solid #d1aa5e;
 
-      background: #f7eddc;
+      background: #f5e6c8;
 
       cursor: zoom-in;
     }
+
 
     .fechar-manual {
       position: absolute;
 
       top: 10px;
+
       right: 12px;
 
-      width: 34px;
-      height: 34px;
+      width: 36px;
+
+      height: 36px;
 
       border: none;
 
       border-radius: 50%;
 
-      background: #f3e8d4;
+      background: #f0dfbd;
 
-      color: #6d5734;
+      color: #624522;
 
-      font-size: 1.25rem;
+      font-size: 1.3rem;
 
       cursor: pointer;
     }
 
-    .manual-instrucao {
-      margin: 12px 0 2px;
 
-      color: #897866;
+    .manual-instrucao {
+      margin:
+        12px
+        0
+        2px;
+
+      color: #806b54;
 
       font-size: 0.76rem;
 
       font-style: italic;
     }
 
-    /* ================================
+
+    /* =========================================
        IMAGEM AMPLIADA
-       ================================ */
+       ========================================= */
 
     .imagem-ampliada {
       display: none;
@@ -562,18 +892,23 @@
 
       padding: 12px;
 
-      background: rgba(20, 15, 10, 0.94);
+      background:
+        rgba(15, 11, 7, 0.95);
 
       align-items: center;
+
       justify-content: center;
     }
+
 
     .imagem-ampliada.aberto {
       display: flex;
     }
 
+
     .imagem-ampliada img {
       max-width: 100%;
+
       max-height: 94vh;
 
       object-fit: contain;
@@ -581,118 +916,226 @@
       border-radius: 6px;
     }
 
+
     .fechar-ampliada {
       position: fixed;
 
       top: 12px;
+
       right: 15px;
 
-      width: 38px;
-      height: 38px;
+      width: 40px;
+
+      height: 40px;
 
       border: none;
 
       border-radius: 50%;
 
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
 
-      color: #5a4935;
+      color: #5a4025;
 
-      font-size: 1.35rem;
+      font-size: 1.4rem;
 
       cursor: pointer;
     }
 
-    /* ================================
+
+    /* =========================================
        TELEMÓVEIS PEQUENOS
-       ================================ */
+       ========================================= */
 
     @media (max-width: 380px) {
 
       body {
-        padding: 10px 7px;
+        padding: 8px 6px;
       }
 
-      .cabecalho {
-        padding-top: 27px;
+
+      .convite {
+        border-radius: 21px;
       }
+
+
+      .cabecalho {
+        padding:
+          30px
+          20px
+          21px;
+      }
+
 
       .cabecalho h1 {
         font-size: 1.75rem;
       }
 
-      .foto {
-        height: 190px;
 
-        margin: 0 20px;
+      .ornamento-topo span {
+        width: 45px;
       }
+
+
+      .foto-wrapper {
+        margin: 0 21px;
+      }
+
+
+      .foto {
+        height: 205px;
+
+        border-radius: 18px;
+      }
+
+
+      .conteudo {
+        padding:
+          23px
+          17px
+          5px;
+      }
+
 
       .nomes {
-        font-size: 1.65rem;
+        font-size: 1.9rem;
       }
+
+
+      .mensagem {
+        font-size: 0.95rem;
+
+        margin-bottom: 20px;
+      }
+
+
+      .informacoes {
+        max-width: 330px;
+      }
+
+
+      .informacao {
+        grid-template-columns: 49px 1fr;
+
+        gap: 7px;
+      }
+
+
+      .informacao .icone {
+        width: 39px;
+        height: 39px;
+
+        font-size: 1.35rem;
+      }
+
+
+      .informacao strong {
+        font-size: 0.9rem;
+      }
+
+
+      .informacao span {
+        font-size: 0.88rem;
+      }
+
 
       .botoes {
-        padding-left: 22px;
-        padding-right: 22px;
+        padding:
+          0
+          19px
+          12px;
       }
+
 
       .botao {
-        min-height: 47px;
+        min-height: 52px;
 
-        padding: 12px 42px 12px 14px;
+        font-size: 0.9rem;
+
+        padding:
+          13px
+          45px
+          13px
+          15px;
       }
 
-      .manual-overlay {
-        padding: 9px;
+
+      .folhagem {
+        bottom: 20px;
+
+        font-size: 2.45rem;
       }
 
-      .manual-caixa {
-        padding: 12px;
+
+      .rodape {
+        padding:
+          8px
+          20px
+          27px;
       }
     }
+
   </style>
 </head>
+
 
 <body>
 
   <main class="convite">
 
-    <!-- CABEÇALHO -->
+
+    <!-- =====================================
+         CABEÇALHO
+         ===================================== -->
 
     <header class="cabecalho">
+
+      <div class="ornamento-topo">
+
+        <span></span>
+
+        <strong>♡</strong>
+
+        <span></span>
+
+      </div>
+
 
       <h1>
         Convite de Noivado
       </h1>
 
-      <div class="linha-titulo"></div>
+
+      <div class="ornamento-titulo"></div>
 
     </header>
 
 
-    <!-- FOTO DOS NOIVOS -->
 
-    <section class="foto">
+    <!-- =====================================
+         FOTO DOS NOIVOS
+         ===================================== -->
 
-      <div class="foto-texto">
-        A nossa história começa aqui
-      </div>
+    <div class="foto-wrapper">
 
-      <!--
-      FUTURA FOTO DOS NOIVOS:
+      <section class="foto">
 
-      <img
-        src="foto-noivos.jpg"
-        alt="Wilson e Anastácia"
-      >
-      -->
+        <img
+          src="foto-noivos.jpg"
+          alt="Wilson e Anastácia"
+        >
 
-    </section>
+      </section>
+
+    </div>
 
 
-    <!-- CONTEÚDO -->
+
+    <!-- =====================================
+         CONTEÚDO
+         ===================================== -->
 
     <section class="conteudo">
+
 
       <h2 class="nomes">
 
@@ -712,7 +1155,13 @@
       </p>
 
 
+
+      <!-- =================================
+           INFORMAÇÕES
+           ================================= -->
+
       <div class="informacoes">
+
 
         <div class="informacao">
 
@@ -720,13 +1169,17 @@
             📅
           </span>
 
-          <strong>
-            Data
-          </strong>
+          <div>
 
-          <span>
-            03 de outubro de 2026
-          </span>
+            <strong>
+              Data
+            </strong>
+
+            <span>
+              03 de outubro de 2026
+            </span>
+
+          </div>
 
         </div>
 
@@ -740,13 +1193,17 @@
             ⏰
           </span>
 
-          <strong>
-            Horário
-          </strong>
+          <div>
 
-          <span>
-            18h00
-          </span>
+            <strong>
+              Horário
+            </strong>
+
+            <span>
+              18h00
+            </span>
+
+          </div>
 
         </div>
 
@@ -760,25 +1217,36 @@
             📍
           </span>
 
-          <strong>
-            Local
-          </strong>
+          <div>
 
-          <span>
-            Salão de Eventos UTT<br>
-            Rua do Weza Paradise
-          </span>
+            <strong>
+              Local
+            </strong>
+
+            <span>
+              Salão de Eventos UTT<br>
+              Rua do Weza Paradise
+            </span>
+
+          </div>
 
         </div>
+
 
       </div>
 
     </section>
 
 
-    <!-- BOTÕES -->
+
+    <!-- =====================================
+         BOTÕES
+         ===================================== -->
 
     <section class="botoes">
+
+
+      <!-- CONFIRMAR PRESENÇA -->
 
       <a
         href="https://forms.gle/fWTGRnVkcBpypAVR7"
@@ -792,6 +1260,9 @@
       </a>
 
 
+
+      <!-- LOCALIZAÇÃO -->
+
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
         class="botao localizacao"
@@ -804,6 +1275,9 @@
       </a>
 
 
+
+      <!-- MANUAL -->
+
       <button
         type="button"
         class="botao manual"
@@ -814,37 +1288,63 @@
 
       </button>
 
+
     </section>
 
 
-    <!-- RODAPÉ -->
+
+    <!-- =====================================
+         DETALHES DECORATIVOS
+         ===================================== -->
+
+    <div class="folhagem esquerda"></div>
+
+    <div class="folhagem direita"></div>
+
+
+
+    <!-- =====================================
+         RODAPÉ
+         ===================================== -->
 
     <footer class="rodape">
 
-      <div class="rodape-linha"></div>
+
+      <div class="rodape-linha">
+        ♡
+      </div>
+
 
       <p>
         Será uma alegria celebrar este momento
         especial convosco.
       </p>
 
+
       <span class="coracao">
         ♡
       </span>
 
+
     </footer>
+
 
   </main>
 
 
-  <!-- JANELA DO MANUAL -->
+
+  <!-- =====================================
+       JANELA DO MANUAL
+       ===================================== -->
 
   <div
     id="manualOverlay"
     class="manual-overlay"
     onclick="fecharManualFora(event)">
 
+
     <div class="manual-caixa">
+
 
       <button
         type="button"
@@ -874,17 +1374,23 @@
         Toque na imagem para visualizar com mais detalhe.
       </p>
 
+
     </div>
+
 
   </div>
 
 
-  <!-- IMAGEM AMPLIADA -->
+
+  <!-- =====================================
+       IMAGEM AMPLIADA
+       ===================================== -->
 
   <div
     id="imagemAmpliada"
     class="imagem-ampliada"
     onclick="fecharAmpliadaFora(event)">
+
 
     <button
       type="button"
@@ -902,10 +1408,17 @@
       alt="Manual do Bom Convidado ampliado"
     >
 
+
   </div>
 
 
+
+  <!-- =====================================
+       JAVASCRIPT
+       ===================================== -->
+
   <script>
+
 
     function abrirManual() {
 
@@ -918,6 +1431,7 @@
     }
 
 
+
     function fecharManual() {
 
       document
@@ -927,6 +1441,7 @@
       document.body.style.overflow = "";
 
     }
+
 
 
     function fecharManualFora(event) {
@@ -943,6 +1458,7 @@
     }
 
 
+
     function ampliarManual() {
 
       document
@@ -952,6 +1468,7 @@
     }
 
 
+
     function fecharAmpliada() {
 
       document
@@ -959,6 +1476,7 @@
         .classList.remove("aberto");
 
     }
+
 
 
     function fecharAmpliadaFora(event) {
@@ -973,6 +1491,7 @@
       }
 
     }
+
 
 
     document.addEventListener(
@@ -990,7 +1509,9 @@
       }
     );
 
+
   </script>
+
 
 </body>
 </html>
