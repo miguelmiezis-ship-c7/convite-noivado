@@ -657,7 +657,9 @@
 
   <main class="convite">
 
-    <!-- CABEÇALHO -->
+    <!-- ================================
+         CABEÇALHO
+         ================================ -->
 
     <header class="cabecalho">
 
@@ -670,7 +672,9 @@
     </header>
 
 
-    <!-- FOTO DOS NOIVOS -->
+    <!-- ================================
+         FOTO DOS NOIVOS
+         ================================ -->
 
     <section class="foto">
 
@@ -679,23 +683,25 @@
       </div>
 
       <!--
-      FUTURA FOTO DOS NOIVOS:
+        Quando tiveres a fotografia dos noivos,
+        podes substituir o conteúdo acima por:
 
-      <img
-        src="foto-noivos.jpg"
-        alt="Wilson e Anastácia"
-      >
+        <img
+          src="foto-noivos.jpg"
+          alt="Wilson e Anastácia"
+        >
       -->
 
     </section>
 
 
-    <!-- CONTEÚDO -->
+    <!-- ================================
+         CONTEÚDO
+         ================================ -->
 
     <section class="conteudo">
 
       <h2 class="nomes">
-
         Wilson
 
         <span class="ampersand">
@@ -703,7 +709,6 @@
         </span>
 
         Anastácia
-
       </h2>
 
 
@@ -776,9 +781,13 @@
     </section>
 
 
-    <!-- BOTÕES -->
+    <!-- ================================
+         BOTÕES
+         ================================ -->
 
     <section class="botoes">
+
+      <!-- CONFIRMAR PRESENÇA -->
 
       <a
         href="https://forms.gle/fWTGRnVkcBpypAVR7"
@@ -792,6 +801,8 @@
       </a>
 
 
+      <!-- LOCALIZAÇÃO -->
+
       <a
         href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
         class="botao localizacao"
@@ -803,6 +814,8 @@
 
       </a>
 
+
+      <!-- MANUAL DO BOM CONVIDADO -->
 
       <button
         type="button"
@@ -817,7 +830,9 @@
     </section>
 
 
-    <!-- RODAPÉ -->
+    <!-- ================================
+         RODAPÉ
+         ================================ -->
 
     <footer class="rodape">
 
@@ -837,7 +852,9 @@
   </main>
 
 
-  <!-- JANELA DO MANUAL -->
+  <!-- ================================
+       JANELA DO MANUAL
+       ================================ -->
 
   <div
     id="manualOverlay"
@@ -862,6 +879,12 @@
       </h2>
 
 
+      <!--
+        IMPORTANTE:
+        Esta imagem deve estar na mesma pasta
+        do index.html.
+      -->
+
       <img
         src="1789604609562.jpg"
         alt="Manual do Bom Convidado"
@@ -879,7 +902,9 @@
   </div>
 
 
-  <!-- IMAGEM AMPLIADA -->
+  <!-- ================================
+       IMAGEM AMPLIADA
+       ================================ -->
 
   <div
     id="imagemAmpliada"
@@ -905,75 +930,105 @@
   </div>
 
 
+  <!-- ================================
+       JAVASCRIPT
+       ================================ -->
+
   <script>
+
+    /* =================================
+       ABRIR MANUAL
+       ================================= */
 
     function abrirManual() {
 
-      document
-        .getElementById("manualOverlay")
-        .classList.add("aberto");
+      const manual =
+        document.getElementById("manualOverlay");
+
+      manual.classList.add("aberto");
 
       document.body.style.overflow = "hidden";
-
     }
 
+
+    /* =================================
+       FECHAR MANUAL
+       ================================= */
 
     function fecharManual() {
 
-      document
-        .getElementById("manualOverlay")
-        .classList.remove("aberto");
+      const manual =
+        document.getElementById("manualOverlay");
+
+      manual.classList.remove("aberto");
 
       document.body.style.overflow = "";
-
     }
 
 
+    /* =================================
+       FECHAR MANUAL AO TOCAR FORA
+       ================================= */
+
     function fecharManualFora(event) {
 
-      if (
-        event.target ===
-        document.getElementById("manualOverlay")
-      ) {
+      const manual =
+        document.getElementById("manualOverlay");
+
+      if (event.target === manual) {
 
         fecharManual();
 
       }
-
     }
 
+
+    /* =================================
+       AMPLIAR IMAGEM
+       ================================= */
 
     function ampliarManual() {
 
-      document
-        .getElementById("imagemAmpliada")
-        .classList.add("aberto");
+      const imagem =
+        document.getElementById("imagemAmpliada");
 
+      imagem.classList.add("aberto");
     }
 
+
+    /* =================================
+       FECHAR IMAGEM AMPLIADA
+       ================================= */
 
     function fecharAmpliada() {
 
-      document
-        .getElementById("imagemAmpliada")
-        .classList.remove("aberto");
+      const imagem =
+        document.getElementById("imagemAmpliada");
 
+      imagem.classList.remove("aberto");
     }
 
 
+    /* =================================
+       FECHAR IMAGEM AO TOCAR FORA
+       ================================= */
+
     function fecharAmpliadaFora(event) {
 
-      if (
-        event.target ===
-        document.getElementById("imagemAmpliada")
-      ) {
+      const imagem =
+        document.getElementById("imagemAmpliada");
+
+      if (event.target === imagem) {
 
         fecharAmpliada();
 
       }
-
     }
 
+
+    /* =================================
+       TECLA ESC
+       ================================= */
 
     document.addEventListener(
       "keydown",
@@ -993,4 +1048,7 @@
   </script>
 
 </body>
-  </html>
+</html>
+
+
+
