@@ -3,112 +3,994 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Convite de Noivado — Wilson & Anastácia</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 20px;
-      font-family: Georgia, serif;
-      background: #fdf6e3;
-      color: #333;
+      padding: 18px 12px;
+      min-height: 100vh;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #fffaf0 0%,
+          #f7eddc 55%,
+          #eee0c8 100%
+        );
+
+      color: #514638;
+    }
+
+    /* ================================
+       MOLDURA PRINCIPAL
+       ================================ */
+
+    .convite {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+
+      background: #fffdf8;
+
+      border: 1px solid rgba(184, 134, 11, 0.45);
+      border-radius: 24px;
+
+      box-shadow:
+        0 12px 35px rgba(80, 60, 30, 0.14);
+
+      overflow: hidden;
+    }
+
+    .convite::before {
+      content: "";
+
+      position: absolute;
+
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+
+      border: 1px solid rgba(184, 134, 11, 0.22);
+      border-radius: 18px;
+
+      pointer-events: none;
+    }
+
+    /* ================================
+       CABEÇALHO
+       ================================ */
+
+    .cabecalho {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+
+      padding: 34px 22px 24px;
+    }
+
+    .cabecalho h1 {
+      margin: 0;
+
+      color: #a9780b;
+
+      font-size: 2rem;
+      font-weight: normal;
+
+      letter-spacing: 1.8px;
+    }
+
+    .linha-titulo {
+      width: 48px;
+      height: 1px;
+
+      margin: 13px auto 0;
+
+      background: #c7a45a;
+    }
+
+    /* ================================
+       FOTO DOS NOIVOS
+       ================================ */
+
+    .foto {
+      position: relative;
+      z-index: 1;
+
+      height: 220px;
+
+      margin: 0 24px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(184, 134, 11, 0.4);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ead8b8,
+          #f8efdf,
+          #dfc69c
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      color: #987535;
+
+      box-shadow:
+        inset 0 0 0 6px rgba(255,255,255,0.22);
+    }
+
+    .foto-texto {
+      padding: 15px;
+
+      text-align: center;
+
+      font-size: 0.92rem;
+      font-style: italic;
+
+      letter-spacing: 0.5px;
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .foto::before,
+    .foto::after {
+      content: "♡";
+
+      position: absolute;
+
+      color: rgba(184, 134, 11, 0.58);
+
+      font-size: 1.1rem;
+
+      z-index: 2;
+    }
+
+    .foto::before {
+      top: 10px;
+      left: 12px;
+    }
+
+    .foto::after {
+      bottom: 10px;
+      right: 12px;
+    }
+
+    /* ================================
+       CONTEÚDO
+       ================================ */
+
+    .conteudo {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+
+      padding: 27px 22px 10px;
+    }
+
+    .nomes {
+      margin: 0;
+
+      color: #574735;
+
+      font-size: 1.9rem;
+      font-weight: normal;
+
+      letter-spacing: 0.4px;
+    }
+
+    .ampersand {
+      color: #b8860b;
+
+      font-style: italic;
+
+      padding: 0 3px;
+    }
+
+    .mensagem {
+      margin: 10px 0 22px;
+
+      color: #806f5d;
+
+      font-size: 0.98rem;
+
+      line-height: 1.5;
+
+      font-style: italic;
+    }
+
+    /* ================================
+       INFORMAÇÕES
+       ================================ */
+
+    .informacoes {
+      padding: 3px 0 8px;
+    }
+
+    .informacao {
+      margin: 14px 0;
+    }
+
+    .informacao .icone {
+      display: block;
+
+      margin-bottom: 5px;
+
+      font-size: 1.1rem;
+    }
+
+    .informacao strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #66543f;
+
+      font-size: 0.78rem;
+
+      letter-spacing: 1.7px;
+
+      text-transform: uppercase;
+    }
+
+    .informacao span {
+      display: block;
+
+      color: #837565;
+
+      font-size: 0.93rem;
+
+      line-height: 1.45;
+    }
+
+    .linha {
+      width: 42px;
+      height: 1px;
+
+      margin: 15px auto;
+
+      background: #c8a45c;
+    }
+
+    /* ================================
+       BOTÕES
+       ================================ */
+
+    .botoes {
+      position: relative;
+      z-index: 1;
+
+      padding: 8px 28px 18px;
+    }
+
+    .botao {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 8px;
+
+      width: 100%;
+
+      min-height: 49px;
+
+      margin: 11px 0;
+
+      padding: 13px 45px 13px 18px;
+
+      border-radius: 12px;
+
+      text-align: center;
+
+      text-decoration: none;
+
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 0.91rem;
+
+      font-weight: bold;
+
+      letter-spacing: 0.2px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .botao:hover {
+      transform: translateY(-2px);
+    }
+
+    .botao:active {
+      transform: translateY(0);
+    }
+
+    .botao::after {
+      content: "›";
+
+      position: absolute;
+
+      right: 17px;
+
+      font-size: 1.35rem;
+
+      font-weight: normal;
+
+      line-height: 1;
+    }
+
+    .confirmar {
+      color: #ffffff;
+
+      background:
+        linear-gradient(
+          135deg,
+          #a9780b,
+          #d2ad55
+        );
+
+      border: 1px solid #b8860b;
+
+      box-shadow:
+        0 6px 16px rgba(184, 134, 11, 0.22);
+    }
+
+    .localizacao {
+      color: #6d5734;
+
+      background: #f3e8d4;
+
+      border: 1px solid rgba(184, 134, 11, 0.35);
+
+      box-shadow:
+        0 4px 12px rgba(80, 60, 30, 0.08);
+    }
+
+    .manual {
+      color: #6d5734;
+
+      background: #fffaf1;
+
+      border: 1px solid #c7a45a;
+
+      box-shadow:
+        0 4px 12px rgba(80, 60, 30, 0.06);
+    }
+
+    /* ================================
+       RODAPÉ
+       ================================ */
+
+    .rodape {
+      position: relative;
+      z-index: 1;
+
+      padding: 10px 25px 25px;
+
       text-align: center;
     }
 
-    .convite {
-      max-width: 600px;
-      margin: 30px auto;
-      padding: 35px 20px;
-      background: #fffdf7;
-      border: 1px solid #d2b48c;
-      border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    .rodape-linha {
+      width: 55px;
+      height: 1px;
+
+      margin: 0 auto 15px;
+
+      background: #c7a45a;
     }
 
-    h1 {
-      color: #b8860b;
-      font-size: 2.2em;
-      margin-bottom: 15px;
+    .rodape p {
+      max-width: 330px;
+
+      margin: 0 auto;
+
+      color: #817363;
+
+      font-size: 0.84rem;
+
+      line-height: 1.55;
+
+      font-style: italic;
     }
 
-    .data {
-      font-size: 1.15em;
-      font-weight: bold;
-    }
-
-    .local {
-      margin: 20px 0 30px;
-      line-height: 1.6;
-    }
-
-    .button {
+    .coracao {
       display: block;
-      margin: 12px auto;
-      padding: 15px 20px;
-      max-width: 350px;
-      font-size: 1.05em;
-      color: #fff;
-      background: #b8860b;
-      text-decoration: none;
+
+      margin-top: 8px;
+
+      color: #b8860b;
+
+      font-size: 1.2rem;
+    }
+
+    /* ================================
+       JANELA DO MANUAL
+       ================================ */
+
+    .manual-overlay {
+      display: none;
+
+      position: fixed;
+
+      z-index: 9999;
+
+      inset: 0;
+
+      padding: 15px;
+
+      background: rgba(40, 30, 18, 0.84);
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .manual-overlay.aberto {
+      display: flex;
+    }
+
+    .manual-caixa {
+      position: relative;
+
+      width: 100%;
+      max-width: 520px;
+
+      max-height: 94vh;
+
+      overflow: auto;
+
+      padding: 18px;
+
+      background: #fffdf8;
+
+      border-radius: 20px;
+
+      border: 1px solid #c7a45a;
+
+      box-shadow:
+        0 15px 45px rgba(0,0,0,0.3);
+
+      text-align: center;
+    }
+
+    .manual-titulo {
+      margin: 3px 40px 15px;
+
+      color: #8a681d;
+
+      font-size: 1.18rem;
+
+      font-weight: normal;
+
+      letter-spacing: 0.4px;
+    }
+
+    .manual-imagem {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      max-height: 72vh;
+
+      object-fit: contain;
+
       border-radius: 10px;
+
+      border: 1px solid rgba(184, 134, 11, 0.25);
+
+      background: #f7eddc;
+
+      cursor: zoom-in;
     }
 
-    .button.secondary {
-      background: #d2b48c;
+    .fechar-manual {
+      position: absolute;
+
+      top: 10px;
+      right: 12px;
+
+      width: 34px;
+      height: 34px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #f3e8d4;
+
+      color: #6d5734;
+
+      font-size: 1.25rem;
+
+      cursor: pointer;
     }
 
-    .button.manual {
-      background: #8b6f47;
+    .manual-instrucao {
+      margin: 12px 0 2px;
+
+      color: #897866;
+
+      font-size: 0.76rem;
+
+      font-style: italic;
     }
 
-    .rodape {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #777;
+    /* ================================
+       IMAGEM AMPLIADA
+       ================================ */
+
+    .imagem-ampliada {
+      display: none;
+
+      position: fixed;
+
+      z-index: 10000;
+
+      inset: 0;
+
+      padding: 12px;
+
+      background: rgba(20, 15, 10, 0.94);
+
+      align-items: center;
+      justify-content: center;
+    }
+
+    .imagem-ampliada.aberto {
+      display: flex;
+    }
+
+    .imagem-ampliada img {
+      max-width: 100%;
+      max-height: 94vh;
+
+      object-fit: contain;
+
+      border-radius: 6px;
+    }
+
+    .fechar-ampliada {
+      position: fixed;
+
+      top: 12px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,0.9);
+
+      color: #5a4935;
+
+      font-size: 1.35rem;
+
+      cursor: pointer;
+    }
+
+    /* ================================
+       TELEMÓVEIS PEQUENOS
+       ================================ */
+
+    @media (max-width: 380px) {
+
+      body {
+        padding: 10px 7px;
+      }
+
+      .cabecalho {
+        padding-top: 27px;
+      }
+
+      .cabecalho h1 {
+        font-size: 1.75rem;
+      }
+
+      .foto {
+        height: 190px;
+
+        margin: 0 20px;
+      }
+
+      .nomes {
+        font-size: 1.65rem;
+      }
+
+      .botoes {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .botao {
+        min-height: 47px;
+
+        padding: 12px 42px 12px 14px;
+      }
+
+      .manual-overlay {
+        padding: 9px;
+      }
+
+      .manual-caixa {
+        padding: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="convite">
+  <main class="convite">
 
-    <h1>Wilson Da Silva & Anastácia Cunge</h1>
+    <!-- CABEÇALHO -->
 
-    <p class="data">
-      03 de outubro de 2026 — às 18h
-    </p>
+    <header class="cabecalho">
 
-    <p class="local">
-      📍 <strong>Salão de Eventos UTT</strong><br>
-      Rua do Weza Paradise
-    </p>
+      <h1>
+        Convite de Noivado
+      </h1>
 
-    <a
-      href="https://forms.gle/fWTGRnVkcBpypAVR7"
-      class="button">
-      💌 Confirmar Presença
-    </a>
+      <div class="linha-titulo"></div>
 
-    <a
-      href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
-      class="button secondary"
-      target="_blank">
-      📍 Ver Localização
-    </a>
+    </header>
 
-    <a
-  href="https://drive.google.com/file/d/137pBak85dZzso8_fXvNavkc6j-bL9XA/view"
-  class="button manual"
-  target="_blank">
-  📖 Manual do Bom Convidado
-    </a>
 
-    <p class="rodape">
-      Será uma alegria celebrar este momento especial convosco. ❤️
-    </p>
+    <!-- FOTO DOS NOIVOS -->
+
+    <section class="foto">
+
+      <div class="foto-texto">
+        A nossa história começa aqui
+      </div>
+
+      <!--
+      FUTURA FOTO DOS NOIVOS:
+
+      <img
+        src="foto-noivos.jpg"
+        alt="Wilson e Anastácia"
+      >
+      -->
+
+    </section>
+
+
+    <!-- CONTEÚDO -->
+
+    <section class="conteudo">
+
+      <h2 class="nomes">
+
+        Wilson
+
+        <span class="ampersand">
+          &amp;
+        </span>
+
+        Anastácia
+
+      </h2>
+
+
+      <p class="mensagem">
+        Vamos celebrar o nosso noivado!
+      </p>
+
+
+      <div class="informacoes">
+
+        <div class="informacao">
+
+          <span class="icone">
+            📅
+          </span>
+
+          <strong>
+            Data
+          </strong>
+
+          <span>
+            03 de outubro de 2026
+          </span>
+
+        </div>
+
+
+        <div class="linha"></div>
+
+
+        <div class="informacao">
+
+          <span class="icone">
+            ⏰
+          </span>
+
+          <strong>
+            Horário
+          </strong>
+
+          <span>
+            18h00
+          </span>
+
+        </div>
+
+
+        <div class="linha"></div>
+
+
+        <div class="informacao">
+
+          <span class="icone">
+            📍
+          </span>
+
+          <strong>
+            Local
+          </strong>
+
+          <span>
+            Salão de Eventos UTT<br>
+            Rua do Weza Paradise
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTÕES -->
+
+    <section class="botoes">
+
+      <a
+        href="https://forms.gle/fWTGRnVkcBpypAVR7"
+        class="botao confirmar"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        💌
+        Confirmar Presença
+
+      </a>
+
+
+      <a
+        href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
+        class="botao localizacao"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        📍
+        Ver Localização
+
+      </a>
+
+
+      <button
+        type="button"
+        class="botao manual"
+        onclick="abrirManual()">
+
+        📖
+        Manual do Bom Convidado
+
+      </button>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
+
+      <div class="rodape-linha"></div>
+
+      <p>
+        Será uma alegria celebrar este momento
+        especial convosco.
+      </p>
+
+      <span class="coracao">
+        ♡
+      </span>
+
+    </footer>
+
+  </main>
+
+
+  <!-- JANELA DO MANUAL -->
+
+  <div
+    id="manualOverlay"
+    class="manual-overlay"
+    onclick="fecharManualFora(event)">
+
+    <div class="manual-caixa">
+
+      <button
+        type="button"
+        class="fechar-manual"
+        onclick="fecharManual()"
+        aria-label="Fechar manual">
+
+        ×
+
+      </button>
+
+
+      <h2 class="manual-titulo">
+        Manual do Bom Convidado
+      </h2>
+
+
+      <img
+        src="1789604609562.jpg"
+        alt="Manual do Bom Convidado"
+        class="manual-imagem"
+        onclick="ampliarManual()"
+      >
+
+
+      <p class="manual-instrucao">
+        Toque na imagem para visualizar com mais detalhe.
+      </p>
+
+    </div>
 
   </div>
 
+
+  <!-- IMAGEM AMPLIADA -->
+
+  <div
+    id="imagemAmpliada"
+    class="imagem-ampliada"
+    onclick="fecharAmpliadaFora(event)">
+
+    <button
+      type="button"
+      class="fechar-ampliada"
+      onclick="fecharAmpliada()"
+      aria-label="Fechar imagem">
+
+      ×
+
+    </button>
+
+
+    <img
+      src="1789604609562.jpg"
+      alt="Manual do Bom Convidado ampliado"
+    >
+
+  </div>
+
+
+  <script>
+
+    function abrirManual() {
+
+      document
+        .getElementById("manualOverlay")
+        .classList.add("aberto");
+
+      document.body.style.overflow = "hidden";
+
+    }
+
+
+    function fecharManual() {
+
+      document
+        .getElementById("manualOverlay")
+        .classList.remove("aberto");
+
+      document.body.style.overflow = "";
+
+    }
+
+
+    function fecharManualFora(event) {
+
+      if (
+        event.target ===
+        document.getElementById("manualOverlay")
+      ) {
+
+        fecharManual();
+
+      }
+
+    }
+
+
+    function ampliarManual() {
+
+      document
+        .getElementById("imagemAmpliada")
+        .classList.add("aberto");
+
+    }
+
+
+    function fecharAmpliada() {
+
+      document
+        .getElementById("imagemAmpliada")
+        .classList.remove("aberto");
+
+    }
+
+
+    function fecharAmpliadaFora(event) {
+
+      if (
+        event.target ===
+        document.getElementById("imagemAmpliada")
+      ) {
+
+        fecharAmpliada();
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          fecharAmpliada();
+
+          fecharManual();
+
+        }
+
+      }
+    );
+
+  </script>
+
 </body>
-</html>
+  </html>
