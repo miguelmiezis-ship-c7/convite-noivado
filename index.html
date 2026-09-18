@@ -3,333 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Convite de Noivado | Wilson & Anastácia</title>
+  <title>Convite de Noivado — Wilson & Anastácia</title>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      min-height: 100vh;
-      background: #e9e2d5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 25px;
-      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 20px;
+      font-family: Georgia, serif;
+      background: #fdf6e3;
+      color: #333;
+      text-align: center;
     }
 
     .convite {
-      position: relative;
-      width: 100%;
-      max-width: 720px;
-      min-height: 980px;
-      background:
-        radial-gradient(circle at top left, rgba(212,175,55,.08), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(212,175,55,.08), transparent 35%),
-        #faf7ef;
-
-      border: 1px solid #c8a951;
-      padding: 55px 45px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.15);
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 35px 20px;
+      background: #fffdf7;
+      border: 1px solid #d2b48c;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
 
-    /* Moldura externa */
-    .convite::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border: 1px solid rgba(180,145,45,.65);
-      pointer-events: none;
-    }
-
-    /* Moldura interna */
-    .convite::after {
-      content: "";
-      position: absolute;
-      inset: 25px;
-      border: 1px solid rgba(180,145,45,.25);
-      pointer-events: none;
-    }
-
-    .conteudo {
-      width: 100%;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .ornamento {
-      color: #b9973e;
-      font-size: 28px;
-      letter-spacing: 8px;
-      margin-bottom: 25px;
-    }
-
-    .pequeno {
-      color: #92752c;
-      font-size: 12px;
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      font-weight: 500;
-    }
-
-    .titulo {
-      font-family: 'Cormorant Garamond', serif;
-      color: #a9842f;
-      font-size: clamp(48px, 8vw, 76px);
-      font-weight: 500;
-      line-height: .95;
+    h1 {
+      color: #b8860b;
+      font-size: 2.2em;
       margin-bottom: 15px;
     }
 
-    .subtitulo {
-      font-family: 'Cormorant Garamond', serif;
-      color: #5c503d;
-      font-size: 25px;
-      font-style: italic;
-      margin-bottom: 35px;
-    }
-
-    .linha {
-      width: 120px;
-      height: 1px;
-      background: #c6a64b;
-      margin: 0 auto 35px;
-    }
-
-    .nomes {
-      font-family: 'Cormorant Garamond', serif;
-      color: #342e26;
-      font-size: clamp(36px, 7vw, 58px);
-      font-weight: 600;
-      line-height: 1.15;
-    }
-
-    .ampersand {
-      display: block;
-      color: #b18b35;
-      font-size: 34px;
-      font-style: italic;
-      margin: 5px 0;
-    }
-
-    .texto {
-      max-width: 520px;
-      margin: 35px auto;
-      color: #625a4c;
-      font-size: 14px;
-      line-height: 1.9;
-      font-weight: 300;
-    }
-
-    .evento {
-      margin-top: 35px;
-    }
-
     .data {
-      font-family: 'Cormorant Garamond', serif;
-      color: #9b7928;
-      font-size: 31px;
-      font-weight: 600;
-      letter-spacing: 2px;
-    }
-
-    .hora {
-      color: #51483a;
-      font-size: 14px;
-      margin-top: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      font-size: 1.15em;
+      font-weight: bold;
     }
 
     .local {
-      margin-top: 28px;
+      margin: 20px 0 30px;
+      line-height: 1.6;
     }
 
-    .local-titulo {
-      color: #a17f30;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+    .button {
+      display: block;
+      margin: 12px auto;
+      padding: 15px 20px;
+      max-width: 350px;
+      font-size: 1.05em;
+      color: #fff;
+      background: #b8860b;
+      text-decoration: none;
+      border-radius: 10px;
     }
 
-    .local-nome {
-      font-family: 'Cormorant Garamond', serif;
-      color: #393228;
-      font-size: 24px;
-      font-weight: 600;
+    .button.secondary {
+      background: #d2b48c;
     }
 
-    .local-endereco {
-      color: #6c6252;
-      font-size: 13px;
-      margin-top: 5px;
+    .button.manual {
+      background: #8b6f47;
     }
 
     .rodape {
-      margin-top: 45px;
-      color: #92752c;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-style: italic;
-    }
-
-    /* Ornamentos dos cantos */
-    .canto {
-      position: absolute;
-      color: #b9973e;
-      font-size: 30px;
-      z-index: 3;
-    }
-
-    .canto.top-left {
-      top: 30px;
-      left: 32px;
-    }
-
-    .canto.top-right {
-      top: 30px;
-      right: 32px;
-    }
-
-    .canto.bottom-left {
-      bottom: 30px;
-      left: 32px;
-    }
-
-    .canto.bottom-right {
-      bottom: 30px;
-      right: 32px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      .convite {
-        min-height: 850px;
-        padding: 50px 25px;
-      }
-
-      .convite::before {
-        inset: 10px;
-      }
-
-      .convite::after {
-        inset: 17px;
-      }
-
-      .texto {
-        font-size: 13px;
-      }
-
-      .data {
-        font-size: 26px;
-      }
-
-      .local-nome {
-        font-size: 21px;
-      }
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
 
 <body>
 
-  <main class="convite">
+  <div class="convite">
 
-    <!-- Ornamentos -->
-    <span class="canto top-left">❦</span>
-    <span class="canto top-right">❦</span>
-    <span class="canto bottom-left">❧</span>
-    <span class="canto bottom-right">❧</span>
+    <h1>Wilson Da Silva & Anastácia Cunge</h1>
 
-    <section class="conteudo">
+    <p class="data">
+      03 de outubro de 2026 — às 18h
+    </p>
 
-      <div class="ornamento">✦</div>
+    <p class="local">
+      📍 <strong>Salão de Eventos UTT</strong><br>
+      Rua do Weza Paradise
+    </p>
 
-      <div class="pequeno">
-        Um momento especial
-      </div>
+    <a
+      href="https://forms.gle/fWTGRnVkcBpypAVR7"
+      class="button">
+      💌 Confirmar Presença
+    </a>
 
-      <h1 class="titulo">
-        Noivado
-      </h1>
+    <a
+      href="https://maps.app.goo.gl/F3u44V6Y1WVwVxPS6?g_st=aw"
+      class="button secondary"
+      target="_blank">
+      📍 Ver Localização
+    </a>
 
-      <p class="subtitulo">
-        Com alegria, celebramos o início de uma nova etapa
-      </p>
+    <a
+  href="https://drive.google.com/file/d/137pBak85dZzso8_fXvNavkc6j-bL9XA/view"
+  class="button manual"
+  target="_blank">
+  📖 Manual do Bom Convidado
+    </a>
 
-      <div class="linha"></div>
+    <p class="rodape">
+      Será uma alegria celebrar este momento especial convosco. ❤️
+    </p>
 
-      <div class="nomes">
-        Wilson Da Silva
-        <span class="ampersand">&</span>
-        Anastácia Cunge
-      </div>
-
-      <p class="texto">
-        É com grande alegria que convidamos familiares e amigos
-        especiais para partilharem connosco este momento único,
-        marcado pelo amor, pela união e pela promessa de uma
-        nova caminhada juntos.
-      </p>
-
-      <div class="evento">
-
-        <div class="data">
-          03 de Outubro de 2026
-        </div>
-
-        <div class="hora">
-          Às 18 horas
-        </div>
-
-        <div class="local">
-
-          <div class="local-titulo">
-            Local
-          </div>
-
-          <div class="local-nome">
-            Salão de Eventos UTT
-          </div>
-
-          <div class="local-endereco">
-            Rua [localização]
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="rodape">
-        Será uma honra contar com a sua presença.
-      </div>
-
-      <div class="ornamento" style="margin-top: 25px;">
-        ✦
-      </div>
-
-    </section>
-
-  </main>
+  </div>
 
 </body>
 </html>
